@@ -32,6 +32,8 @@ Route::post('logout', 'LoginController@logout')->name('logout');
 Route::group(['middleware' => 'school_admin'],function(){
     //api匯入
     Route::get('school_admins/api', 'SchoolAdminController@api')->name('school_admins.api');
+    Route::get('school_admins/api_pull', 'SchoolAdminController@api_pull')->name('school_admins.api_pull');
+    Route::get('school_admins/{semester}/student_class/{select_class_id?}', 'SchoolAdminController@student_class')->name('school_admins.student_class');
     Route::post('school_admins/api/store', 'SchoolAdminController@api_store')->name('school_admins.api_store');
     Route::delete('school_admins/api/destroy/{school_api}', 'SchoolAdminController@api_destroy')->name('school_admins.api_destroy');
 

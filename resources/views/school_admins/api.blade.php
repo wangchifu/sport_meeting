@@ -37,9 +37,41 @@
                                     {{ $school_api->client_secret }}
                                 </td>
                                 <td>
+                                    <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#api_pullModal">拉回資料</button>
                                     <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#api_destroyModal">刪除</button>
                                 </td>
                             </tr>
+                        </tbody>
+                    </table>
+                <hr>
+                    <table class="table">
+                        <thead class="table-warning">
+                        <tr>
+                            <th style="width:40%">
+                                學期
+                            </th>
+                            <th style="width:40%">
+                                班級數
+                            </th>
+                            <th style="width:20%">
+                                學生數
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            @foreach($student_data as $k=>$v)
+                                <td>
+                                    {{ $k }}
+                                </td>
+                                <td>
+                                    {{ $class_data[$k] }} <a href="{{ route('school_admins.student_class',$k) }}" class="btn btn-info btn-sm">詳細資料...</a>
+                                </td>
+                                <td>
+                                    {{ $v }}
+                                </td>
+                            @endforeach
+                        </tr>
                         </tbody>
                     </table>
                     <form action="{{ route('school_admins.api_destroy',$school_api->id) }}" method="post" id="api_destroy">
@@ -63,6 +95,26 @@
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">按錯了</button>
                                     <button type="button" class="btn btn-primary" onclick="document.getElementById('api_destroy').submit()">確定刪除</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal fade" id="api_pullModal" tabindex="-1" role="dialog" aria-labelledby="api_pullModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="api_pullModalLabel">拉下資料確認</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    你確定要拉下貴校學期資料？已存在資料者將更新，頻繁拉下資料將造成系統負擔。
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">按錯了</button>
+                                    <button type="button" class="btn btn-primary" onclick="location.href='api_pull'">確定拉下</button>
                                 </div>
                             </div>
                         </div>
