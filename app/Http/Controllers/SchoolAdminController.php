@@ -7,6 +7,7 @@ use App\User;
 use App\StudentClass;
 use App\Student;
 use App\SchoolAdmin;
+use App\Item;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -297,5 +298,62 @@ class SchoolAdminController extends Controller
         $result = curl_exec($ch);
         return json_decode($result);
     }
+
+    public function item()
+    {
+        $items = Item::where('code',auth()->user()->code)->orderBy('disable')->orderBy('order')->get();
+        $data = [
+            'items'=>$items,
+        ];
+        return view('school_admins.item',$data);
+    }
+
+    public function item_create()
+    {
+        $data = [
+
+        ];
+        return view('school_admins.item_create',$data);
+    }
+
+    public function item_add(Request $request)
+    {
+        $att = $request->all();
+        $att['code'] = auth()->user()->code;
+        $att['limit'] = ($request->input('limit'))?1:null;
+        Item::create($att);
+        return redirect()->route('school_admins.item');
+    }
+
+    public function item_edit(Item $item)
+    {
+        $data = [
+            'item'=>$item
+        ];
+        return view('school_admins.item_edit',$data);
+    }
+
+    public function item_update(Request $request,Item $item)
+    {
+        $att = $request->all();
+        $att['limit'] = ($request->input('limit'))?1:null;
+        $item->update($att);
+        return redirect()->route('school_admins.item');
+    }
+
+    public function item_delete(Item $item)
+    {
+        $att['disable'] =1;
+        $item->update($att);
+        return redirect()->route('school_admins.item');
+    }
+
+    public function item_enable(Item $item)
+    {
+        $att['disable'] =null;
+        $item->update($att);
+        return redirect()->route('school_admins.item');
+    }
+
 
 }

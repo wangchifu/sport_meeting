@@ -1,0 +1,38 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateItemsTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('items', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('code');
+            $table->unsignedInteger('order')->nullable();//排序
+            $table->string('name');//
+            $table->tinyInteger('group');//組別 1男子組 2女子組 3男子組+女子組
+            $table->tinyInteger('type');//類別 1徑賽  2田賽  3其他
+            $table->tinyInteger('limit')->nullable();//1限制選乎參賽項目
+            $table->tinyInteger('disable')->nullable();//
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('items');
+    }
+}

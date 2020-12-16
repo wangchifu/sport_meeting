@@ -20,15 +20,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="559e7c48-4c12-42fd-a213-e64a055785f2" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Item.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/System.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_12_16_034125_create_items_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_12_16_071054_create_systems_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/school_admins/item.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/school_admins/item_create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/school_admins/item_edit.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SchoolAdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SchoolAdminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Student.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Student.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/StudentClass.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/StudentClass.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_12_14_011944_create_students_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_12_14_011944_create_students_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_12_14_012003_create_student_classes_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_12_14_012003_create_student_classes_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/navbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/navbar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/school_admins/account.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/school_admins/account.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/side.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/side.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -161,16 +162,16 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app" />
+      <recent name="$PROJECT_DIR$/app/Http" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/resources/views/school_admins" />
       <recent name="$PROJECT_DIR$/resources/views" />
       <recent name="$PROJECT_DIR$/app/Http/Middleware" />
       <recent name="$PROJECT_DIR$/app/Http/Controllers" />
       <recent name="$PROJECT_DIR$/app" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/app" />
-      <recent name="$PROJECT_DIR$/app/Http" />
     </key>
   </component>
   <component name="RunManager">
@@ -198,7 +199,7 @@
       <workItem from="1607991344188" duration="2810000" />
       <workItem from="1608016026478" duration="403000" />
       <workItem from="1608075903651" duration="1716000" />
-      <workItem from="1608078302906" duration="7798000" />
+      <workItem from="1608078302906" duration="15804000" />
     </task>
     <servers />
   </component>
