@@ -20,13 +20,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="559e7c48-4c12-42fd-a213-e64a055785f2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Student.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/StudentClass.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_12_14_011944_create_students_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_12_14_012003_create_student_classes_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/school_admins/student_class.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SchoolAdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SchoolAdminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/school_admins/api.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/school_admins/api.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Student.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Student.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/StudentClass.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/StudentClass.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_12_14_011944_create_students_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_12_14_011944_create_students_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_12_14_012003_create_student_classes_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_12_14_012003_create_student_classes_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/navbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/navbar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/school_admins/account.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/school_admins/account.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -193,6 +195,10 @@
       <workItem from="1607587930301" duration="224000" />
       <workItem from="1607644280346" duration="21535000" />
       <workItem from="1607903778928" duration="10680000" />
+      <workItem from="1607991344188" duration="2810000" />
+      <workItem from="1608016026478" duration="403000" />
+      <workItem from="1608075903651" duration="1716000" />
+      <workItem from="1608078302906" duration="7798000" />
     </task>
     <servers />
   </component>
@@ -215,6 +221,10 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="643" y="256" width="630" height="527" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1608077786583">
+      <screen x="0" y="0" width="1920" height="1039" />
+    </state>
+    <state x="643" y="256" width="630" height="527" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1920.1039@0.0.1920.1039" timestamp="1608077786583" />
     <state x="693" y="269" width="530" height="501" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1607659556501">
       <screen x="0" y="0" width="1920" height="1039" />
     </state>

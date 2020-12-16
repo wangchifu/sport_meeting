@@ -7,7 +7,7 @@
         <h1 class="mt-4">帳號管理</h1>
         <div class="row">
             <div class="col-xl-12 col-md-12">
-                <table class="table">
+                <table class="table table-hover">
                     <thead class="table-primary">
                     <tr>
                         <th>
@@ -15,9 +15,6 @@
                         </th>
                         <th>
                             職稱
-                        </th>
-                        <th>
-                            導師班
                         </th>
                         <th>
                             姓名
@@ -37,24 +34,54 @@
                                 {{ $user->title }}
                             </td>
                             <td>
-
-                            </td>
-                            <td>
+                                @if($user->disable)
+                                    <span class="text-danger">[停用]</span>
+                                @endif
                                 <?php
-                                    $school_admin = \App\SchoolAdmin::where('code',$user->code)->where('user_id',$user->id)->where('type','1')->first();
+                                $check1 = \App\StudentClass::where('code',$user->code)->where('user_ids',$user->id)->first();
+                                $check2 = \App\StudentClass::where('code',$user->code)->where('user_ids','like',$user->id.',%')->first();
+                                $check3 = \App\StudentClass::where('code',$user->code)->where('user_ids','like','%,'.$user->id)->first();
                                 ?>
-                                @if(!empty($school_admin))
-                                    @if($school_admin->type === 1)
-                                        <i class="fas fa-crown text-warning"></i>
+                                @if(!empty($check1))
+                                    @if(strlen($check1->user_ids) == strlen($user->id))
+                                        {{ $check1->student_year }}年{{ $check1->student_class }}班
                                     @endif
                                 @endif
+                                @if(!empty($check2))
+                                    {{ $check2->student_year }}年{{ $check2->student_class }}班
+                                @endif
+                                @if(!empty($check3))
+                                    {{ $check3->student_year }}年{{ $check3->student_class }}班
+                                @endif
+
+                                <?php
+                                    $school_admin = \App\SchoolAdmin::where('code',$user->code)->where('user_id',$user->id)->first();
+                                ?>
                                 {{ $user->name }}
+                                @if(!empty($school_admin))
+                                    @if($school_admin->type === 1)
+                                        <span class="text-primary">[管理權]</span>
+                                    @endif
+                                    @if($school_admin->type === 2)
+                                        <span class="text-success">[成績權]</span>
+                                    @endif
+                                    @if($user->id != auth()->user()->id)
+                                        <i class="fas fa-times-circle text-danger" data-toggle="modal" data-target="#accModal" data-whatever="{{ route('school_admins.account_remove_power',$user->id) }}" data-name="{{ $user->name }}" data-act="remove_power"></i></span>
+                                    @endif
+                                @endif
                             </td>
                             <td>
-                                <button class="btn btn-info btn-sm">修改</button>
+                                @if(empty($school_admin))
+                                    <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#accModal" data-whatever="{{ route('school_admins.account_set1',$user->id) }}" data-name="{{ $user->name }}" data-act="set1">設管理權</button>
+                                    <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#accModal" data-whatever="{{ route('school_admins.account_set2',$user->id) }}" data-name="{{ $user->name }}" data-act="set2">設成績權</button>
+                                @endif
                                 @if($user->id != auth()->user()->id)
-                                    <button class="btn btn-danger btn-sm">停用</button>
-                                    <a href="{{ route('school_admins.impersonate',$user->id) }}" class="btn btn-secondary btn-sm" onclick="return confirm('確定模擬？')">模擬</a>
+                                    @if($user->disable)
+                                            <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#accModal" data-whatever="{{ route('school_admins.account_enable',$user->id) }}" data-name="{{ $user->name }}" data-act="enable">啟用</button>
+                                    @else
+                                            <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#accModal" data-whatever="{{ route('school_admins.account_disable',$user->id) }}" data-name="{{ $user->name }}" data-act="disable">停用</button>
+                                    @endif
+                                    <button class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#accModal" data-whatever="{{ route('school_admins.impersonate',$user->id) }}" data-name="{{ $user->name }}" data-act="impersonate">模擬</button>
                                 @endif
                             </td>
                         </tr>
@@ -65,23 +92,54 @@
         </div>
     </div>
 
-    <div class="modal fade" id="impersonate_leaveModal" tabindex="-1" role="dialog" aria-labelledby="impersonate_leaveModalLabel" aria-hidden="true">
+    <div class="modal fade" id="accModal" tabindex="-1" role="dialog" aria-labelledby="accModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="impersonate_leaveModalLabel">結束模擬確認</h5>
+                    <h5 class="modal-title" id="accModalLabel">請確認</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    你確定要結束模擬，返回原先帳號登入？
+                    <span id="showText"></span>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">按錯了</button>
-                    <a href="{{ route('school_admins.impersonate_leave') }}" class="btn btn-primary">確定結束</a>
+                    <a href="" id="do" class="btn btn-primary">確定</a>
                 </div>
             </div>
         </div>
     </div>
+
+    <script>
+        $(function () { $('#accModal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget) // Button that triggered the modal
+            var recipient = button.data('whatever')
+            var act = button.data('act')
+            var name = button.data('name')
+            $('#do').attr("href", recipient);
+            if(act == "set1"){
+                $('#showText').text('給 ['+name+'] 管理權？');
+            }
+            if(act == "set2"){
+                $('#showText').text('給 ['+name+'] 成績權？');
+            }
+            if(act == "disable"){
+                $('#showText').text('將 ['+name+'] 的帳號停用？');
+            }
+            if(act == "enable"){
+                $('#showText').text('將 ['+name+'] 的帳號重新啟用？');
+            }
+            if(act == "impersonate"){
+                $('#showText').text('模擬 ['+name+'] 的帳號登入？');
+            }
+            if(act == "remove_power"){
+                $('#showText').text('將 ['+name+'] 的權限刪除？');
+            }
+
+        })
+        });
+
+    </script>
 @endsection

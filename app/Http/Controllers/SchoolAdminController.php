@@ -6,6 +6,7 @@ use App\SchoolApi;
 use App\User;
 use App\StudentClass;
 use App\Student;
+use App\SchoolAdmin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -15,8 +16,8 @@ class SchoolAdminController extends Controller
     {
         $school_api = SchoolApi::where('code',auth()->user()->code)->first();
 
-        $students = Student::all();
-        $student_classes = StudentClass::all();
+        $students = Student::where('code',auth()->user()->code)->get();
+        $student_classes = StudentClass::where('code',auth()->user()->code)->get();
         $student_data = [];
         if(!empty($students)){
             foreach($students as $student){
@@ -78,6 +79,7 @@ class SchoolAdminController extends Controller
                 $user_ids .= $user->id.',';
             }
             $user_ids = substr($user_ids,0,-1);
+            $att2['code'] = auth()->user()->code;
             $att2['semester'] = $semester;
             $att2['student_year'] = $v->年級;
             $att2['student_class'] = $v->班序;
@@ -94,6 +96,7 @@ class SchoolAdminController extends Controller
 
             $student_array = $v->學期編班;
             foreach($student_array as $k3=>$v3){
+                $att3['code'] = auth()->user()->code;
                 $att3['semester'] = $semester;
                 $att3['edu_key'] = $v3->身分證編碼;
                 $att3['name'] = $v3->姓名;
@@ -136,11 +139,62 @@ class SchoolAdminController extends Controller
 
     public function account()
     {
-        $users = User::where('code',auth()->user()->code)->get();
+        $users = User::where('code',auth()->user()->code)
+            ->orderBy('disable')
+            ->get();
         $data = [
             'users'=>$users,
         ];
         return view('school_admins.account',$data);
+    }
+
+    public function account_set1(User $user)
+    {
+        $att['code'] = $user->code;
+        $att['user_id'] = $user->id;
+        $att['type'] = 1;
+        $check = SchoolAdmin::where('code',$user->code)->where('user_id',$user->id)->first();
+        if(empty($check)){
+            SchoolAdmin::create($att);
+        }
+        return redirect()->route('school_admins.account');
+    }
+
+    public function account_set2(User $user)
+    {
+        $att['code'] = $user->code;
+        $att['user_id'] = $user->id;
+        $att['type'] = 2;
+        $check = SchoolAdmin::where('code',$user->code)->where('user_id',$user->id)->first();
+        if(empty($check)){
+            SchoolAdmin::create($att);
+        }
+        return redirect()->route('school_admins.account');
+    }
+
+    public function account_disable(User $user)
+    {
+        $att['disable'] = 1;
+        $user->update($att);
+        return redirect()->route('school_admins.account');
+    }
+
+    public function account_enable(User $user)
+    {
+        $att['disable'] = null;
+        $user->update($att);
+        return redirect()->route('school_admins.account');
+    }
+
+    public function account_remove_power(User $user)
+    {
+        $school_admin = SchoolAdmin::where('code',$user->code)
+            ->where('user_id',$user->id)
+            ->first();
+        if(!empty($school_admin)){
+            $school_admin->delete();
+        }
+        return redirect()->route('school_admins.account');
     }
 
     public function impersonate(User $user)
@@ -157,6 +211,7 @@ class SchoolAdminController extends Controller
     public function student_class($semester,$select_class_id=null)
     {
         $student_classes = StudentClass::where('semester',$semester)
+            ->where('code',auth()->user()->code)
             ->get();
         foreach($student_classes as $student_class){
             $class_data[$student_class->id]['id'] = $student_class->id;
@@ -179,6 +234,7 @@ class SchoolAdminController extends Controller
 
         $select_class = StudentClass::find($select_class_id);
         $students = Student::where('semester',$semester)
+            ->where('code',auth()->user()->code)
             ->where('student_year',$select_class->student_year)
             ->where('student_class',$select_class->student_class)
             ->orderBy('num')

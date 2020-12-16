@@ -11,6 +11,8 @@
     <link href="{{ asset('css/styles.css') }}" rel="stylesheet" />
     <link href="{{ asset('css/dataTables.bootstrap4.min.css') }}" rel="stylesheet" crossorigin="anonymous" />
     <script src="{{ asset('js/all.min.js') }}" crossorigin="anonymous"></script>
+    <script src="{{ asset('js/jquery-3.5.1.min.js') }}" crossorigin="anonymous"></script>
+
 </head>
 <body class="sb-nav-fixed">
 @include('layouts.navbar')

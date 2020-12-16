@@ -39,6 +39,11 @@ Route::group(['middleware' => 'school_admin'],function(){
 
     //帳號管理
     Route::get('school_admins/account', 'SchoolAdminController@account')->name('school_admins.account');
+    Route::get('school_admins/{user}/account/set1', 'SchoolAdminController@account_set1')->name('school_admins.account_set1');
+    Route::get('school_admins/{user}/account/set2', 'SchoolAdminController@account_set2')->name('school_admins.account_set2');
+    Route::get('school_admins/{user}/account/disable', 'SchoolAdminController@account_disable')->name('school_admins.account_disable');
+    Route::get('school_admins/{user}/account/enable', 'SchoolAdminController@account_enable')->name('school_admins.account_enable');
+    Route::get('school_admins/{user}/account/remove_power', 'SchoolAdminController@account_remove_power')->name('school_admins.account_remove_power');
     Route::get('school_admins/impersonate/{user}', 'SchoolAdminController@impersonate')->name('school_admins.impersonate');
 });
 
