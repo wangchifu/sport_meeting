@@ -143,6 +143,7 @@ class SchoolAdminController extends Controller
     {
         $users = User::where('code',auth()->user()->code)
             ->orderBy('disable')
+            ->orderBy('semester','DESC')
             ->get();
         $data = [
             'users'=>$users,

@@ -31,6 +31,7 @@
                                 {{ $user->kind }}
                             </td>
                             <td>
+                                ({{ $user->semester }})
                                 {{ $user->title }}
                             </td>
                             <td>

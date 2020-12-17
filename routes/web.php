@@ -29,6 +29,9 @@ Route::get('cloudschool_back', 'LoginController@cloudschool_back')->name('clouds
 //登出
 Route::post('logout', 'LoginController@logout')->name('logout');
 
+//錯誤
+Route::get('class_teacher_error', 'HomeController@class_teacher_error')->name('class_teacher_error');
+
 Route::group(['middleware' => 'school_admin'],function(){
     //api匯入
     Route::get('school_admins/api', 'SchoolAdminController@api')->name('school_admins.api');
