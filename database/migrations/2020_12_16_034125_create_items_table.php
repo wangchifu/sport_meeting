@@ -20,6 +20,7 @@ class CreateItemsTable extends Migration
             $table->string('name');//
             $table->tinyInteger('group');//組別 1男子組 2女子組 3男子組+女子組
             $table->tinyInteger('type');//類別 1徑賽  2田賽  3其他
+            $table->string('years');//哪些年級報名
             $table->tinyInteger('limit')->nullable();//1限制選乎參賽項目
             $table->tinyInteger('disable')->nullable();//
             $table->timestamps();

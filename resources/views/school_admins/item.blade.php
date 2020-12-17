@@ -24,6 +24,9 @@
                             類別
                         </th>
                         <th>
+                            參賽年級
+                        </th>
+                        <th>
                             動作
                         </th>
                     </tr>
@@ -66,6 +69,11 @@
                                         其他
                                     @endif
                                 </span>
+                            </td>
+                            <td>
+                                @foreach(unserialize($item->years) as $y)
+                                    {{ $y }},
+                                @endforeach
                             </td>
                             <td>
                                 @if($item->disable)

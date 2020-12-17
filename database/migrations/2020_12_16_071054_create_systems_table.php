@@ -15,6 +15,9 @@ class CreateSystemsTable extends Migration
     {
         Schema::create('systems', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('code');
+            $table->unsignedInteger('frequency')->nullable();//每人可報項目有幾項
+            $table->unsignedInteger('numbers');//號碼布數字幾位數
             $table->timestamps();
         });
     }

@@ -319,6 +319,7 @@ class SchoolAdminController extends Controller
     public function item_add(Request $request)
     {
         $att = $request->all();
+        $att['years'] = serialize($att['years']);
         $att['code'] = auth()->user()->code;
         $att['limit'] = ($request->input('limit'))?1:null;
         Item::create($att);
@@ -336,6 +337,7 @@ class SchoolAdminController extends Controller
     public function item_update(Request $request,Item $item)
     {
         $att = $request->all();
+        $att['years'] = serialize($att['years']);
         $att['limit'] = ($request->input('limit'))?1:null;
         $item->update($att);
         return redirect()->route('school_admins.item');

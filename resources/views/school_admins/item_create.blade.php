@@ -43,6 +43,44 @@
                     <label class="form-check-label" for="limit">限制選手參賽項目</label>
                 </div>
             </div>
+            <div class="form-row">
+                <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" id="y1" name="years[]" checked value="1">
+                    <label class="form-check-label" for="y1">一年級　</label>
+                </div>
+                <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" id="y2" name="years[]" checked value="2">
+                    <label class="form-check-label" for="y2">二年級　</label>
+                </div>
+                <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" id="y3" name="years[]" checked value="3">
+                    <label class="form-check-label" for="y3">三年級　</label>
+                </div>
+                <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" id="y4" name="years[]" checked value="4">
+                    <label class="form-check-label" for="y4">四年級　</label>
+                </div>
+                <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" id="y5" name="years[]" checked value="5">
+                    <label class="form-check-label" for="y5">五年級　</label>
+                </div>
+                <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" id="y6" name="years[]" checked value="6">
+                    <label class="form-check-label" for="y6">六年級　</label>
+                </div>
+                <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" id="y7" name="years[]" checked value="7">
+                    <label class="form-check-label" for="y7">七年級　</label>
+                </div>
+                <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" id="y8" name="years[]" checked value="8">
+                    <label class="form-check-label" for="y8">八年級　</label>
+                </div>
+                <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" id="y9" name="years[]" checked value="9">
+                    <label class="form-check-label" for="y9">九年級　</label>
+                </div>
+            </div>
             <button type="submit" class="btn btn-primary">新增</button>
         </form>
     </div>

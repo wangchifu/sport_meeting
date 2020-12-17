@@ -78,6 +78,47 @@
                     <label class="form-check-label" for="limit">限制選手參賽項目</label>
                 </div>
             </div>
+            <div class="form-row">
+                <?php
+                    $years = unserialize($item->years);
+                ?>
+                <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" id="y1" name="years[]" @if(in_array(1,$years)) checked @endif value="1">
+                    <label class="form-check-label" for="y1">一年級　</label>
+                </div>
+                <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" id="y2" name="years[]" @if(in_array(2,$years)) checked @endif value="2">
+                    <label class="form-check-label" for="y2">二年級　</label>
+                </div>
+                <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" id="y3" name="years[]" @if(in_array(3,$years)) checked @endif value="3">
+                    <label class="form-check-label" for="y3">三年級　</label>
+                </div>
+                <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" id="y4" name="years[]" @if(in_array(4,$years)) checked @endif value="4">
+                    <label class="form-check-label" for="y4">四年級　</label>
+                </div>
+                <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" id="y5" name="years[]" @if(in_array(5,$years)) checked @endif value="5">
+                    <label class="form-check-label" for="y5">五年級　</label>
+                </div>
+                <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" id="y6" name="years[]" @if(in_array(6,$years)) checked @endif value="6">
+                    <label class="form-check-label" for="y6">六年級　</label>
+                </div>
+                <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" id="y7" name="years[]" @if(in_array(7,$years)) checked @endif value="7">
+                    <label class="form-check-label" for="y7">七年級　</label>
+                </div>
+                <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" id="y8" name="years[]" @if(in_array(8,$years)) checked @endif value="8">
+                    <label class="form-check-label" for="y8">八年級　</label>
+                </div>
+                <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" id="y9" name="years[]" @if(in_array(9,$years)) checked @endif value="9">
+                    <label class="form-check-label" for="y9">九年級　</label>
+                </div>
+            </div>
             <button type="submit" class="btn btn-primary">儲存</button>
         </form>
     </div>

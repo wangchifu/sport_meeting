@@ -12,6 +12,7 @@ class Item extends Model
         'name',
         'group',
         'type',
+        'years',
         'limit',
         'disable',
     ];
