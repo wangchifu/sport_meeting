@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\SchoolApi;
 use App\User;
+use App\SchoolAdmin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -65,6 +66,32 @@ class LoginController extends Controller
                 $att['username'] = $username[0];
 
                 $user = User::create($att);
+
+                //若是特定組長主任，自動為該校管理者
+                $title = [
+                    '資訊組長',
+                    '資訊組',
+                    '體衛組長',
+                    '體衛組',
+                    '體育衛生組長',
+                    '體育衛生組',
+                    '體育組長',
+                    '體育組',
+                    '訓導組長',
+                    '訓導組',
+                    '學務主任',
+                    '訓導主任',
+                    '教導主任',
+                ];
+                if(in_array($user->title,$title)){
+                    $att2['code'] = $user->code;
+                    $att2['user_id'] = $user->id;
+                    $att2['type'] = 1;
+                    $check = SchoolAdmin::where('code',$user->code)->where('user_id',$user->id)->first();
+                    if(empty($check)){
+                        SchoolAdmin::create($att2);
+                    }
+                }
 
             }else{
                 //被停用了
@@ -187,6 +214,32 @@ class LoginController extends Controller
                 $att['group'] = $data->group;
 
                 $user = User::create($att);
+
+                //若是特定組長主任，自動為該校管理者
+                $title = [
+                    '資訊組長',
+                    '資訊組',
+                    '體衛組長',
+                    '體衛組',
+                    '體育衛生組長',
+                    '體育衛生組',
+                    '體育組長',
+                    '體育組',
+                    '訓導組長',
+                    '訓導組',
+                    '學務主任',
+                    '訓導主任',
+                    '教導主任',
+                ];
+                if(in_array($user->title,$title)){
+                    $att2['code'] = $user->code;
+                    $att2['user_id'] = $user->id;
+                    $att2['type'] = 1;
+                    $check = SchoolAdmin::where('code',$user->code)->where('user_id',$user->id)->first();
+                    if(empty($check)){
+                        SchoolAdmin::create($att2);
+                    }
+                }
 
             }else{
                 //被停用了

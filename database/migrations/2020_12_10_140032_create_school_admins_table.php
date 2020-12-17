@@ -14,7 +14,7 @@ class CreateSchoolAdminsTable extends Migration
     public function up()
     {
         Schema::create('school_admins', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->string('code');//學校代碼
             $table->string('user_id');//gsuite帶出uid
             $table->tinyInteger('type')->nullable();//權限 1最高管理者

@@ -20,14 +20,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="559e7c48-4c12-42fd-a213-e64a055785f2" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/ClassTeacherController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/class_teachers/sign_up.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/LoginController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SchoolAdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SchoolAdminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Item.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Item.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/System.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/System.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_12_16_034125_create_items_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_12_16_034125_create_items_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_12_16_071054_create_systems_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_12_16_071054_create_systems_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/school_admins/item_create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/school_admins/item_create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/school_admins/item_edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/school_admins/item_edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_12_02_022826_create_sessions_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_12_09_114821_create_school_apis_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_12_09_114821_create_school_apis_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_12_10_140032_create_school_admins_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_12_10_140032_create_school_admins_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/side.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/side.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/school_admins/account.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/school_admins/account.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -154,21 +159,21 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/school_admins" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/class_teachers" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/app" />
-      <recent name="$PROJECT_DIR$/app/Http" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/views/class_teachers" />
       <recent name="$PROJECT_DIR$/resources/views/school_admins" />
       <recent name="$PROJECT_DIR$/resources/views" />
       <recent name="$PROJECT_DIR$/app/Http/Middleware" />
       <recent name="$PROJECT_DIR$/app/Http/Controllers" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app" />
+      <recent name="$PROJECT_DIR$/app/Http" />
     </key>
   </component>
   <component name="RunManager">
@@ -197,7 +202,7 @@
       <workItem from="1608016026478" duration="403000" />
       <workItem from="1608075903651" duration="1716000" />
       <workItem from="1608078302906" duration="16074000" />
-      <workItem from="1608163243144" duration="1091000" />
+      <workItem from="1608163243144" duration="6935000" />
     </task>
     <servers />
   </component>

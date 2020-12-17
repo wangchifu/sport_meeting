@@ -57,4 +57,6 @@ Route::group(['middleware' => 'school_admin'],function(){
 //登入的使用者可用
 Route::group(['middleware' => 'auth'],function(){
     Route::get('school_admins/impersonate_leave', 'SchoolAdminController@impersonate_leave')->name('school_admins.impersonate_leave');
+
+    Route::get('class_teachers/sign_up', 'ClassTeacherController@sign_up')->name('class_teachers.sign_up');
 });

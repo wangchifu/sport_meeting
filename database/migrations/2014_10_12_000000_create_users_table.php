@@ -14,7 +14,8 @@ class CreateUsersTable extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
+            $table->string('semester')->nullable();//
             $table->string('uid')->nullable();//gsuite帶出uid
             $table->string('edu_key')->nullable();//gsuite及cloudschool帶出edu_key
             $table->string('name');//姓名
@@ -32,6 +33,7 @@ class CreateUsersTable extends Migration
             $table->string('group')->nullable();//cloudschool 帶出 group
             $table->tinyInteger('admin')->nullable();//停用
             $table->tinyInteger('disable')->nullable();//停用
+            $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

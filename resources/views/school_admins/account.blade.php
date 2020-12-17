@@ -38,9 +38,9 @@
                                     <span class="text-danger">[停用]</span>
                                 @endif
                                 <?php
-                                $check1 = \App\StudentClass::where('code',$user->code)->where('user_ids',$user->id)->first();
-                                $check2 = \App\StudentClass::where('code',$user->code)->where('user_ids','like',$user->id.',%')->first();
-                                $check3 = \App\StudentClass::where('code',$user->code)->where('user_ids','like','%,'.$user->id)->first();
+                                $check1 = \App\StudentClass::where('semester',$user->semester)->where('code',$user->code)->where('user_ids',$user->id)->first();
+                                $check2 = \App\StudentClass::where('semester',$user->semester)->where('code',$user->code)->where('user_ids','like',$user->id.',%')->first();
+                                $check3 = \App\StudentClass::where('semester',$user->semester)->where('code',$user->code)->where('user_ids','like','%,'.$user->id)->first();
                                 ?>
                                 @if(!empty($check1))
                                     @if(strlen($check1->user_ids) == strlen($user->id))

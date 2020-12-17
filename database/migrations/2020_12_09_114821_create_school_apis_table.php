@@ -14,7 +14,7 @@ class CreateSchoolApisTable extends Migration
     public function up()
     {
         Schema::create('school_apis', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->string('code');
             $table->string('client_id');
             $table->string('client_secret');

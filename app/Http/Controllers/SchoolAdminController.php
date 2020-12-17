@@ -57,6 +57,7 @@ class SchoolAdminController extends Controller
         foreach($techer_data as $k=>$v){
             $edu_key = $v->身分證編碼;
             $user = User::where('edu_key',$edu_key)->first();
+            $att['semester'] = $semester;
             $att['edu_key'] = $v->身分證編碼;
             $att['name'] = $v->姓名;
             $att['title'] = $v->職稱;
@@ -151,6 +152,9 @@ class SchoolAdminController extends Controller
 
     public function account_set1(User $user)
     {
+        //不是本校即退回
+        if($user->code != auth()->user()->code) return back();
+
         $att['code'] = $user->code;
         $att['user_id'] = $user->id;
         $att['type'] = 1;
@@ -163,6 +167,9 @@ class SchoolAdminController extends Controller
 
     public function account_set2(User $user)
     {
+        //不是本校即退回
+        if($user->code != auth()->user()->code) return back();
+
         $att['code'] = $user->code;
         $att['user_id'] = $user->id;
         $att['type'] = 2;
@@ -175,6 +182,9 @@ class SchoolAdminController extends Controller
 
     public function account_disable(User $user)
     {
+        //不是本校即退回
+        if($user->code != auth()->user()->code) return back();
+
         $att['disable'] = 1;
         $user->update($att);
         return redirect()->route('school_admins.account');
@@ -182,6 +192,9 @@ class SchoolAdminController extends Controller
 
     public function account_enable(User $user)
     {
+        //不是本校即退回
+        if($user->code != auth()->user()->code) return back();
+
         $att['disable'] = null;
         $user->update($att);
         return redirect()->route('school_admins.account');
@@ -189,6 +202,9 @@ class SchoolAdminController extends Controller
 
     public function account_remove_power(User $user)
     {
+        //不是本校即退回
+        if($user->code != auth()->user()->code) return back();
+
         $school_admin = SchoolAdmin::where('code',$user->code)
             ->where('user_id',$user->id)
             ->first();
@@ -200,6 +216,9 @@ class SchoolAdminController extends Controller
 
     public function impersonate(User $user)
     {
+        //不是本校即退回
+        if($user->code != auth()->user()->code) return back();
+
         Auth::user()->impersonate($user);
         return redirect()->route('index');
     }
