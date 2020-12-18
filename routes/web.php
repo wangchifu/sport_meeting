@@ -55,6 +55,14 @@ Route::group(['middleware' => 'school_admin'],function(){
     Route::patch('school_admins/item/{item}/update', 'SchoolAdminController@item_update')->name('school_admins.item_update');
     Route::get('school_admins/item/{item}/delete', 'SchoolAdminController@item_delete')->name('school_admins.item_delete');
     Route::get('school_admins/item/{item}/enable', 'SchoolAdminController@item_enable')->name('school_admins.item_enable');
+
+    Route::get('school_admins/action', 'SchoolAdminController@action')->name('school_admins.action');
+    Route::get('school_admins/action/create', 'SchoolAdminController@action_create')->name('school_admins.action_create');
+    Route::post('school_admins/action/add', 'SchoolAdminController@action_add')->name('school_admins.action_add');
+    Route::get('school_admins/action/{action}/edit', 'SchoolAdminController@action_edit')->name('school_admins.action_edit');
+    Route::patch('school_admins/action/{action}/update', 'SchoolAdminController@action_update')->name('school_admins.action_update');
+    Route::get('school_admins/action/{action}/delete', 'SchoolAdminController@action_delete')->name('school_admins.action_delete');
+    Route::get('school_admins/action/{action}/enable', 'SchoolAdminController@action_enable')->name('school_admins.action_enable');
 });
 
 //登入的使用者可用

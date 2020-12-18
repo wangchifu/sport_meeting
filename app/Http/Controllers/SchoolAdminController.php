@@ -8,6 +8,7 @@ use App\StudentClass;
 use App\Student;
 use App\SchoolAdmin;
 use App\Item;
+use App\Action;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -375,6 +376,60 @@ class SchoolAdminController extends Controller
         $att['disable'] =null;
         $item->update($att);
         return redirect()->route('school_admins.item');
+    }
+
+    public function action()
+    {
+        $actions = Action::where('code',auth()->user()->code)->get();
+        $data = [
+            'actions'=>$actions,
+        ];
+        return view('school_admins.action',$data);
+    }
+
+    public function action_create()
+    {
+        $data = [
+
+        ];
+        return view('school_admins.action_create',$data);
+    }
+
+    public function action_add(Request $request)
+    {
+        $att = $request->all();
+        $att['code'] = auth()->user()->code;
+        Action::create($att);
+        return redirect()->route('school_admins.action');
+    }
+
+    public function action_edit(Action $action)
+    {
+        $data = [
+            'action'=>$action
+        ];
+        return view('school_admins.action_edit',$data);
+    }
+
+    public function action_update(Request $request,Action $action)
+    {
+        $att = $request->all();
+        $action->update($att);
+        return redirect()->route('school_admins.action');
+    }
+
+    public function action_delete(Action $action)
+    {
+        $att['disable'] =1;
+        $action->update($att);
+        return redirect()->route('school_admins.action');
+    }
+
+    public function action_enable(Action $action)
+    {
+        $att['disable'] =null;
+        $action->update($att);
+        return redirect()->route('school_admins.action');
     }
 
 

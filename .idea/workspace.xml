@@ -20,15 +20,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="559e7c48-4c12-42fd-a213-e64a055785f2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/ClassTeacherMiddleware.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/my_fun.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Action.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_12_18_015338_create_actions_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/school_admins/action.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/school_admins/action_create.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ClassTeacherController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ClassTeacherController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SchoolAdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SchoolAdminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/school_admins/account.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/school_admins/account.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/side.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/side.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -156,15 +154,15 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Http/Middleware" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/school_admins" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/views/school_admins" />
       <recent name="$PROJECT_DIR$/app/Http/Middleware" />
       <recent name="$PROJECT_DIR$/resources/views/class_teachers" />
-      <recent name="$PROJECT_DIR$/resources/views/school_admins" />
       <recent name="$PROJECT_DIR$/resources/views" />
       <recent name="$PROJECT_DIR$/app/Http/Controllers" />
     </key>
@@ -199,7 +197,13 @@
       <workItem from="1608016026478" duration="403000" />
       <workItem from="1608075903651" duration="1716000" />
       <workItem from="1608078302906" duration="16074000" />
-      <workItem from="1608163243144" duration="11579000" />
+      <workItem from="1608163243144" duration="11628000" />
+      <workItem from="1608250310861" duration="79000" />
+      <workItem from="1608250542525" duration="14000" />
+      <workItem from="1608250564991" duration="611000" />
+      <workItem from="1608255817854" duration="1797000" />
+      <workItem from="1608257626825" duration="69000" />
+      <workItem from="1608257704559" duration="657000" />
     </task>
     <servers />
   </component>
@@ -222,10 +226,10 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="643" y="256" width="630" height="527" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1608077786583">
+    <state x="643" y="256" width="630" height="527" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1608250332080">
       <screen x="0" y="0" width="1920" height="1039" />
     </state>
-    <state x="643" y="256" width="630" height="527" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1920.1039@0.0.1920.1039" timestamp="1608077786583" />
+    <state x="643" y="256" width="630" height="527" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1920.1039@0.0.1920.1039" timestamp="1608250332080" />
     <state x="693" y="269" width="530" height="501" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1607659556501">
       <screen x="0" y="0" width="1920" height="1039" />
     </state>

@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title','新增比賽項目')
+@section('title','修改比賽項目')
 
 @section('main')
     <div class="container-fluid">
@@ -8,7 +8,7 @@
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ route('school_admins.item') }}">比賽項目</a></li>
-                <li class="breadcrumb-item active" aria-current="page">新增比賽項目</li>
+                <li class="breadcrumb-item active" aria-current="page">修改比賽項目</li>
             </ol>
         </nav>
         <form action="{{ route('school_admins.item_update',$item->id) }}" method="post">
