@@ -14,6 +14,7 @@ class Item extends Model
         'type',
         'years',
         'limit',
+        'people',
         'disable',
     ];
 }

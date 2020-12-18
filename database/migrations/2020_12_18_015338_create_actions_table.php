@@ -17,6 +17,8 @@ class CreateActionsTable extends Migration
             $table->bigIncrements('id');
             $table->string('code');
             $table->string('name');//
+            $table->unsignedInteger('frequency');//每人可報項目有幾項
+            $table->unsignedInteger('numbers');//號碼布數字幾位數
             $table->tinyInteger('disable')->nullable();//停用
             $table->timestamps();
         });

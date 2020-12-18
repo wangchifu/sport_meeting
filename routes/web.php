@@ -70,4 +70,7 @@ Route::group(['middleware' => 'auth'],function(){
     Route::get('school_admins/impersonate_leave', 'SchoolAdminController@impersonate_leave')->name('school_admins.impersonate_leave');
 
     Route::get('class_teachers/sign_up', 'ClassTeacherController@sign_up')->name('class_teachers.sign_up');
+    Route::get('class_teachers/{action}/sign_up_do', 'ClassTeacherController@sign_up_do')->name('class_teachers.sign_up_do');
+    Route::post('class_teachers/sign_up_add', 'ClassTeacherController@sign_up_add')->name('class_teachers.sign_up_add');
+    Route::get('class_teachers/{action}/sign_up_show', 'ClassTeacherController@sign_up_show')->name('class_teachers.sign_up_show');
 });

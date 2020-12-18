@@ -18,7 +18,7 @@
                     <label for="order">排序</label>
                     <input type="text" class="form-control" id="order" name="order" placeholder="數字">
                 </div>
-                <div class="form-group col-md-5">
+                <div class="form-group col-md-4">
                     <label for="name">名稱<span class="text-danger">*</span></label>
                     <input type="text" class="form-control" id="name" name="name" placeholder="名稱" required>
                 </div>
@@ -30,7 +30,16 @@
                         <option value="2">女子組</option>
                     </select>
                 </div>
-                <div class="form-group col-md-3">
+                <div class="form-group col-md-2">
+                    <label for="people">每組派幾個<span class="text-danger">*</span></label>
+                    <select id="people" class="form-control" name="people">
+                        <option value="1">1</option>
+                        <option value="2" selected>2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-2">
                     <label for="sex">類别<span class="text-danger">*</span></label>
                     <select id="sex" class="form-control" name="type">
                         <option value="1" selected>徑賽</option>

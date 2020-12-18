@@ -8,7 +8,7 @@
         <div class="row">
             <div class="col-xl-12 col-md-12">
                 <a class="btn btn-success" href="{{ route('school_admins.action_create') }}">新增報名任務</a>
-                <table class="table table-hover">
+                <table class="table table-striped">
                     <thead class="table-primary">
                     <tr>
                         <th>
@@ -40,6 +40,8 @@
                                 @if($action->disable)
                                     <span class="text-danger">[停止]</span>
                                 @endif
+                                <br>
+                                <small class="text-secondary">每人限報 {{ $action->frequency }} 個項目 號碼布為 {{ $action->numbers }} 位數</small>
                             </td>
                             <td>
                                 {{ $action->created_at }}

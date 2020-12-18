@@ -19,27 +19,18 @@
                     <label for="order">排序</label>
                     <input type="text" class="form-control" id="order" name="order" placeholder="數字" value="{{ $item->order }}">
                 </div>
-                <div class="form-group col-md-5">
+                <div class="form-group col-md-4">
                     <label for="name">名稱<span class="text-danger">*</span></label>
                     <input type="text" class="form-control" id="name" name="name" placeholder="名稱" required value="{{ $item->name }}">
                 </div>
                 <div class="form-group col-md-3">
                     <?php
-                    if($item->group==1){
-                        $g1 = "selected";
-                        $g2 = null;
-                        $g3 = null;
-                    }
-                    if($item->group==2){
-                        $g1 = null;
-                        $g2 = "selected";
-                        $g3 = null;
-                    }
-                    if($item->group==3){
-                        $g1 = null;
-                        $g2 = null;
-                        $g3 = "selected";
-                    }
+                    $g1 = null;
+                    $g2 = null;
+                    $g3 = null;
+                    if($item->group==1) $g1 = "selected";
+                    if($item->group==2) $g2 = "selected";
+                    if($item->group==3) $g3 = "selected";
                     ?>
                     <label for="sex">男女組别<span class="text-danger">*</span></label>
                     <select id="sex" class="form-control" name="group">
@@ -48,23 +39,33 @@
                         <option value="2" {{ $g2 }}>女子組</option>
                     </select>
                 </div>
-                <div class="form-group col-md-3">
+                <div class="form-group col-md-2">
                     <?php
-                    if($item->type==1){
-                        $t1 = "selected";
-                        $t2 = null;
-                        $t3 = null;
-                    }
-                    if($item->type==2){
-                        $t1 = null;
-                        $t2 = "selected";
-                        $t3 = null;
-                    }
-                    if($item->type==3){
-                        $t1 = null;
-                        $t2 = null;
-                        $t3 = "selected";
-                    }
+                    $p1 = null;
+                    $p2 = null;
+                    $p3 = null;
+                    $p4 = null;
+                    if($item->people==1) $p1 = "selected";
+                    if($item->people==2) $p2 = "selected";
+                    if($item->people==3) $p3 = "selected";
+                    if($item->people==4) $p4 = "selected";
+                    ?>
+                    <label for="people">每組派幾個<span class="text-danger">*</span></label>
+                    <select id="people" class="form-control" name="people">
+                        <option value="1" {{ $p1 }}>1</option>
+                        <option value="2" {{ $p2 }}>2</option>
+                        <option value="3" {{ $p3 }}>3</option>
+                        <option value="4" {{ $p4 }}>4</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-2">
+                    <?php
+                    $t1 = null;
+                    $t2 = null;
+                    $t3 = null;
+                    if($item->type==1) $t1 = "selected";
+                    if($item->type==2) $t2 = "selected";
+                    if($item->type==3) $t3 = "selected";
                     ?>
                     <label for="sex">類别<span class="text-danger">*</span></label>
                     <select id="sex" class="form-control" name="type">

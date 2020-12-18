@@ -8,7 +8,7 @@
         <div class="row">
             <div class="col-xl-12 col-md-12">
                 <a class="btn btn-success" href="{{ route('school_admins.item_create') }}">新增比賽項目</a>
-                <table class="table table-hover">
+                <table class="table table-striped">
                     <thead class="table-primary">
                     <tr>
                         <th>
@@ -55,8 +55,9 @@
                                     @elseif($item->group == 2)
                                         <span class="text-danger">女子組</span>
                                     @elseif($item->group == 3)
-                                        <span class="text-primary">男子組</span>+<span class="text-danger">女子組</span>
+                                        <span class="text-primary">男子組</span>+<span class="text-danger">女子組</span> 各
                                     @endif
+                                    {{ $item->people }} 個
                                 </span>
                             </td>
                             <td>

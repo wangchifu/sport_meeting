@@ -349,6 +349,9 @@ class SchoolAdminController extends Controller
 
     public function item_edit(Item $item)
     {
+        //不是本校即退回
+        if($item->code != auth()->user()->code) return back();
+
         $data = [
             'item'=>$item
         ];
@@ -366,6 +369,9 @@ class SchoolAdminController extends Controller
 
     public function item_delete(Item $item)
     {
+        //不是本校即退回
+        if($item->code != auth()->user()->code) return back();
+
         $att['disable'] =1;
         $item->update($att);
         return redirect()->route('school_admins.item');
@@ -373,6 +379,9 @@ class SchoolAdminController extends Controller
 
     public function item_enable(Item $item)
     {
+        //不是本校即退回
+        if($item->code != auth()->user()->code) return back();
+
         $att['disable'] =null;
         $item->update($att);
         return redirect()->route('school_admins.item');
@@ -405,6 +414,9 @@ class SchoolAdminController extends Controller
 
     public function action_edit(Action $action)
     {
+        //不是本校即退回
+        if($action->code != auth()->user()->code) return back();
+
         $data = [
             'action'=>$action
         ];
@@ -420,6 +432,9 @@ class SchoolAdminController extends Controller
 
     public function action_delete(Action $action)
     {
+        //不是本校即退回
+        if($action->code != auth()->user()->code) return back();
+
         $att['disable'] =1;
         $action->update($att);
         return redirect()->route('school_admins.action');
@@ -427,6 +442,9 @@ class SchoolAdminController extends Controller
 
     public function action_enable(Action $action)
     {
+        //不是本校即退回
+        if($action->code != auth()->user()->code) return back();
+
         $att['disable'] =null;
         $action->update($att);
         return redirect()->route('school_admins.action');
