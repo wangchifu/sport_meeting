@@ -44,7 +44,7 @@
                                 @if(count($check) === 0)
                                     <a href="{{ route('class_teachers.sign_up_do',$action->id) }}" class="btn btn-primary btn-sm">報名</a>
                                 @else
-                                    已報名 <a href="{{ route('class_teachers.sign_up_show',$action->id) }}" class="btn btn-info btn-sm">詳細資料...</a>
+                                    已報過名 <a href="{{ route('class_teachers.sign_up_show',$action->id) }}" class="btn btn-info btn-sm">詳細資料...</a>
                                 @endif
                             </td>
                         </tr>

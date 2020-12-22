@@ -12,15 +12,16 @@
             </ol>
         </nav>
         <div class="row">
-            <h2 class="text-success">每個學生最多報名 {{ $action->frequency }} 個項目</h2>
+            <h2 class="text-success">每個學生最多限報名 {{ $action->frequency }} 個項目</h2>
             <div class="col-xl-12 col-md-12">
                 <h3>{{ $student_year }}年{{ $student_class }}班</h3>
+                @include('layouts.errors')
                 <form action="{{ route('class_teachers.sign_up_add') }}" method="post">
                     @csrf
                     @foreach($items as $item)
                         <div class="form-group">
                             <div class="container-fluid">
-                                <label for="exampleFormControlSelect1"><h4>{{ $item->name }}</h4></label>
+                                <label for="exampleFormControlSelect1"><h4>{{ $item->name }}@if($item->limit) <small class="text-danger">(限報)</small> @endif</h4></label>
                                 @if($item->group==1 or $item->group==3)
                                 <div class="row">
                                     <text class="text-primary col-12">男子組</text>
