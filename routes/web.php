@@ -48,8 +48,8 @@ Route::group(['middleware' => 'school_admin'],function(){
     Route::get('school_admins/{user}/account/enable', 'SchoolAdminController@account_enable')->name('school_admins.account_enable');
     Route::get('school_admins/{user}/account/remove_power', 'SchoolAdminController@account_remove_power')->name('school_admins.account_remove_power');
     Route::get('school_admins/impersonate/{user}', 'SchoolAdminController@impersonate')->name('school_admins.impersonate');
-    Route::get('school_admins/item', 'SchoolAdminController@item')->name('school_admins.item');
-    Route::get('school_admins/item/create', 'SchoolAdminController@item_create')->name('school_admins.item_create');
+    Route::get('school_admins/item/{action_id?}', 'SchoolAdminController@item')->name('school_admins.item');
+    Route::get('school_admins/item/{action}/create', 'SchoolAdminController@item_create')->name('school_admins.item_create');
     Route::post('school_admins/item/add', 'SchoolAdminController@item_add')->name('school_admins.item_add');
     Route::get('school_admins/item/{item}/edit', 'SchoolAdminController@item_edit')->name('school_admins.item_edit');
     Route::patch('school_admins/item/{item}/update', 'SchoolAdminController@item_update')->name('school_admins.item_update');
@@ -57,6 +57,7 @@ Route::group(['middleware' => 'school_admin'],function(){
     Route::get('school_admins/item/{item}/enable', 'SchoolAdminController@item_enable')->name('school_admins.item_enable');
 
     Route::get('school_admins/action', 'SchoolAdminController@action')->name('school_admins.action');
+    Route::get('school_admins/{action}/action_show', 'SchoolAdminController@action_show')->name('school_admins.action_show');
     Route::get('school_admins/action/create', 'SchoolAdminController@action_create')->name('school_admins.action_create');
     Route::post('school_admins/action/add', 'SchoolAdminController@action_add')->name('school_admins.action_add');
     Route::get('school_admins/action/{action}/edit', 'SchoolAdminController@action_edit')->name('school_admins.action_edit');

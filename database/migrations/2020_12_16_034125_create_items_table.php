@@ -16,6 +16,7 @@ class CreateItemsTable extends Migration
         Schema::create('items', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('code');
+            $table->unsignedInteger('action_id');
             $table->unsignedInteger('order')->nullable();//排序
             $table->string('name');//
             $table->tinyInteger('group');//組別 1男子組 2女子組 3男子組+女子組

@@ -20,11 +20,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="559e7c48-4c12-42fd-a213-e64a055785f2" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/school_admins/action_show.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ClassTeacherController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ClassTeacherController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/class_teachers/sign_up.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/class_teachers/sign_up.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SchoolAdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SchoolAdminController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Item.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Item.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/StudentSign.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/StudentSign.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_12_16_034125_create_items_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_12_16_034125_create_items_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/class_teachers/sign_up_do.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/class_teachers/sign_up_do.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/class_teachers/sign_up_show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/class_teachers/sign_up_show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/side.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/side.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/school_admins/action.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/school_admins/action.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/school_admins/item.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/school_admins/item.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/school_admins/item_create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/school_admins/item_create.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -153,14 +161,14 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../chcschool" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/school_admins" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/resources/views/class_teachers" />
       <recent name="$PROJECT_DIR$/resources/views/school_admins" />
+      <recent name="$PROJECT_DIR$/resources/views/class_teachers" />
       <recent name="$PROJECT_DIR$/app/Http/Middleware" />
       <recent name="$PROJECT_DIR$/resources/views" />
       <recent name="$PROJECT_DIR$/app/Http/Controllers" />
@@ -204,7 +212,10 @@
       <workItem from="1608257626825" duration="69000" />
       <workItem from="1608257704559" duration="15613000" />
       <workItem from="1608516181996" duration="7420000" />
-      <workItem from="1608594856587" duration="10942000" />
+      <workItem from="1608594856587" duration="11227000" />
+      <workItem from="1608681156596" duration="1555000" />
+      <workItem from="1608694254481" duration="605000" />
+      <workItem from="1608769737337" duration="8518000" />
     </task>
     <servers />
   </component>

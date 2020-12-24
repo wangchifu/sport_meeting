@@ -26,8 +26,8 @@
                     </tr>
                     </thead>
                     <tbody>
+                    <?php $i=1; ?>
                     @foreach($actions as $action)
-                        <?php $i=1; ?>
                         <tr>
                             <td>
                                 {{ $i }}
@@ -36,7 +36,7 @@
                                 <span @if($action->disable) style="text-decoration:line-through" @endif>
                                     {{ $action->name }}
                                 </span>
-                                <a href="" class="btn btn-info btn-sm">報名狀況...</a>
+                                <a href="{{ route('school_admins.action_show',$action->id) }}" class="btn btn-info btn-sm">報名狀況...</a>
                                 @if($action->disable)
                                     <span class="text-danger">[停止]</span>
                                 @endif

@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use App\Student;
 use App\Item;
+use App\Action;
 
 class StudentSign extends Model
 {
@@ -28,5 +29,10 @@ class StudentSign extends Model
     public function item()
     {
         return $this->belongsTo(Item::class);
+    }
+
+    public function action()
+    {
+        return $this->belongsTo(Action::class);
     }
 }

@@ -90,6 +90,7 @@
                     <label class="form-check-label" for="y9">九年級　</label>
                 </div>
             </div>
+            <input type="hidden" name="action_id" value="{{ $action->id }}">
             <button type="submit" class="btn btn-primary">新增</button>
         </form>
     </div>

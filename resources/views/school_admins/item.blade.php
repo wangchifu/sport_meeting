@@ -7,7 +7,16 @@
         <h1 class="mt-4">比賽項目</h1>
         <div class="row">
             <div class="col-xl-12 col-md-12">
-                <a class="btn btn-success" href="{{ route('school_admins.item_create') }}">新增比賽項目</a>
+                <form name="myform" onchange="jump()">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        {{ Form::select('select_action', $action_array, $select_action, ['class' => 'form-control']) }}
+                    </div>
+                    <div class="form-group col-md-2">
+                        <a class="btn btn-success" href="{{ route('school_admins.item_create',$select_action) }}">新增比賽項目</a>
+                    </div>
+                </div>
+                </form>
                 <table class="table table-striped">
                     <thead class="table-primary">
                     <tr>
@@ -113,6 +122,12 @@
     </div>
 
     <script>
+        function jump(){
+            if(document.myform.select_action.options[document.myform.select_action.selectedIndex].value!=''){
+                location="/school_admins/item/" + document.myform.select_action.options[document.myform.select_action.selectedIndex].value;
+            }
+        }
+
         $(function () { $('#itemModal').on('show.bs.modal', function (event) {
             var button = $(event.relatedTarget) // Button that triggered the modal
             var recipient = button.data('whatever')

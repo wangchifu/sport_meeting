@@ -65,6 +65,7 @@ class ClassTeacherController extends Controller
         }
 
         $items = Item::where('code',auth()->user()->code)
+            ->where('action_id',$action->id)
             ->where('disable',null)
             ->orderBy('order')
             ->get();
@@ -132,7 +133,8 @@ class ClassTeacherController extends Controller
                 $att['student_class'] = $request->input('student_class');
                 $att['sex'] = "男";
 
-                $check = StudentSign::where('item_id',$k1)
+                $check = StudentSign::where('action_id',$request->input('action_id'))
+                    ->where('item_id',$k1)
                     ->where('student_id')
                     ->first();
                 if(empty($check)){
@@ -152,7 +154,8 @@ class ClassTeacherController extends Controller
                 $att2['student_class'] = $request->input('student_class');
                 $att2['sex'] = "女";
 
-                $check = StudentSign::where('item_id',$k1)
+                $check = StudentSign::where('action_id',$request->input('action_id'))
+                    ->where('item_id',$k1)
                     ->where('student_id',$att2['student_id'])
                     ->first();
                 if(empty($check)){

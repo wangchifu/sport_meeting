@@ -16,44 +16,51 @@
             <div class="col-xl-12 col-md-12">
                 <h3>{{ $student_year }}年{{ $student_class }}班</h3>
                 @include('layouts.errors')
-                <form action="{{ route('class_teachers.sign_up_add') }}" method="post">
-                    @csrf
-                    @foreach($items as $item)
-                        <div class="form-group">
-                            <div class="container-fluid">
-                                <label for="exampleFormControlSelect1"><h4>{{ $item->name }}@if($item->limit) <small class="text-danger">(限報)</small> @endif</h4></label>
-                                @if($item->group==1 or $item->group==3)
-                                <div class="row">
-                                    <text class="text-primary col-12">男子組</text>
-                                    @for($i=1;$i<=$item->people;$i++)
-                                    <div class="col-3">
-                                        {{ Form::select('boy_select['.$i.']['.$item->id.']', $boys, null, ['id' => 'boy_select', 'class' => 'form-control', 'placeholder' => '--請選擇--','required' => 'required']) }}
-                                    </div>
-                                    @endfor
-                                </div>
-                                <div class="row">
-                                    　
-                                </div>
-                                @endif
-                                @if($item->group==2 or $item->group==3)
-                                <div class="row">
-                                    <text class="text-danger col-12">女子組</text>
-                                    @for($i=1;$i<=$item->people;$i++)
-                                        <div class="col-3">
-                                            {{ Form::select('girl_select['.$i.']['.$item->id.']', $girls, null, ['id' => 'girl_select', 'class' => 'form-control', 'placeholder' => '--請選擇--','required' => 'required']) }}
+                @if(count($items))
+                    <form action="{{ route('class_teachers.sign_up_add') }}" method="post">
+                        @csrf
+                        @foreach($items as $item)
+                        <?php
+                            $years_array = unserialize($item->years);
+                        ?>
+                            @if(in_array($student_year,$years_array))
+                                <div class="form-group">
+                                    <div class="container-fluid">
+                                        <label for="exampleFormControlSelect1"><h4>{{ $item->name }}@if($item->limit) <small class="text-danger">(限報)</small> @endif</h4></label>
+                                        @if($item->group==1 or $item->group==3)
+                                        <div class="row">
+                                            <text class="text-primary col-12">男子組</text>
+                                            @for($i=1;$i<=$item->people;$i++)
+                                            <div class="col-3">
+                                                {{ Form::select('boy_select['.$i.']['.$item->id.']', $boys, null, ['id' => 'boy_select', 'class' => 'form-control', 'placeholder' => '--請選擇--','required' => 'required']) }}
+                                            </div>
+                                            @endfor
                                         </div>
-                                    @endfor
+                                        <div class="row">
+                                            　
+                                        </div>
+                                        @endif
+                                        @if($item->group==2 or $item->group==3)
+                                        <div class="row">
+                                            <text class="text-danger col-12">女子組</text>
+                                            @for($i=1;$i<=$item->people;$i++)
+                                                <div class="col-3">
+                                                    {{ Form::select('girl_select['.$i.']['.$item->id.']', $girls, null, ['id' => 'girl_select', 'class' => 'form-control', 'placeholder' => '--請選擇--','required' => 'required']) }}
+                                                </div>
+                                            @endfor
+                                        </div>
+                                        @endif
+                                    </div>
                                 </div>
-                                @endif
-                            </div>
-                        </div>
-                        <hr>
-                    @endforeach
-                    <input type="hidden" name="action_id" value="{{ $action->id }}">
-                    <input type="hidden" name="student_year" value="{{ $student_year }}">
-                    <input type="hidden" name="student_class" value="{{ $student_class }}">
-                    <button class="btn btn-primary">送出</button>
-                </form>
+                                <hr>
+                            @endif
+                        @endforeach
+                        <input type="hidden" name="action_id" value="{{ $action->id }}">
+                        <input type="hidden" name="student_year" value="{{ $student_year }}">
+                        <input type="hidden" name="student_class" value="{{ $student_class }}">
+                        <button class="btn btn-primary">送出</button>
+                    </form>
+                @endif
             </div>
         </div>
     </div>

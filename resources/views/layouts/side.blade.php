@@ -20,13 +20,13 @@
                         <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
                         帳號管理
                     </a>
+                    <a class="nav-link" href="{{ route('school_admins.action') }}">
+                        <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                        報名任務
+                    </a>
                     <a class="nav-link" href="{{ route('school_admins.item') }}">
                         <div class="sb-nav-link-icon"><i class="fas fa-running"></i></div>
                         比賽項目
-                    </a>
-                    <a class="nav-link" href="{{ route('school_admins.action') }}">
-                        <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                        報名設定
                     </a>
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                         <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>

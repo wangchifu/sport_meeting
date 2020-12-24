@@ -320,20 +320,45 @@ class SchoolAdminController extends Controller
         return json_decode($result);
     }
 
-    public function item()
+    public function item($action_id=null)
     {
-        $items = Item::where('code',auth()->user()->code)->orderBy('disable')->orderBy('order')->get();
+
+        $actions = Action::orderBy('id','DESC')->get();
+        $action_array = [];
+        foreach($actions as $action){
+            $action_array[$action->id] = $action->name;
+        }
+        $select_action = null;
+        if(empty($action_id)){
+            $select_action = key($action_array);
+        }else{
+            $select_action = $action_id;
+        }
+
+        $items = [];
+        if(!empty($select_action)){
+            $items = Item::where('code',auth()->user()->code)
+                ->where('action_id',$select_action)
+                ->orderBy('disable')
+                ->orderBy('order')->get();
+        }
         $data = [
+            'action_array'=>$action_array,
+            'select_action'=>$select_action,
             'items'=>$items,
         ];
         return view('school_admins.item',$data);
     }
 
-    public function item_create()
+    public function item_create(Action $action)
     {
-        $data = [
+        //不是本校即退回
+        if($action->code != auth()->user()->code) return back();
 
+        $data = [
+          'action'=>$action,
         ];
+
         return view('school_admins.item_create',$data);
     }
 
@@ -389,11 +414,28 @@ class SchoolAdminController extends Controller
 
     public function action()
     {
-        $actions = Action::where('code',auth()->user()->code)->get();
+        $actions = Action::where('code',auth()->user()->code)
+            ->orderBy('id','DESC')
+            ->get();
         $data = [
             'actions'=>$actions,
         ];
         return view('school_admins.action',$data);
+    }
+
+    public function action_show(Action $action)
+    {
+        //不是本校即退回
+        if($action->code != auth()->user()->code) return back();
+
+
+
+        $data = [
+            'action'=>$action,
+
+        ];
+        return view('school_admins.action_show',$data);
+
     }
 
     public function action_create()

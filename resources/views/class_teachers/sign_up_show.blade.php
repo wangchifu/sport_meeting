@@ -17,51 +17,56 @@
                 <h3>{{ $student_year }}年{{ $student_class }}班</h3>
                 @include('layouts.errors')
                 @foreach($items as $item)
-                    <div class="form-group">
-                        <div class="container-fluid">
-                            <label for="exampleFormControlSelect1"><h4>{{ $item->name }}@if($item->limit) <small class="text-danger">(限報)</small> @endif</h4></label>
-                            @if($item->group==1 or $item->group==3)
-                            <div class="row">
-                                <text class="text-primary col-12">男子組</text>
-                                <div class="col-3">
-                                <?php
-                                    $boys_sign = \App\StudentSign::where('item_id',$item->id)->where('sex','男')->where('student_year',$student_year)->where('student_class',$student_class)->get();
-                                ?>
-                                @foreach($boys_sign as $boy_sign)
-                                    {{ $boy_sign->student->name }} <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#changeModal" data-name="{{ $boy_sign->student->name }}" data-sign_id="{{ $boy_sign->id }}" data-sex="男">更換</button>,
-                                @endforeach
-                                @if(count($boys_sign) < $item->people)
-                                    @for($i=1;$i<=$item->people-count($boys_sign);$i++)
-                                        <button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#makeModal" data-item_id="{{ $item->id }}" data-sex="男" data-item_name="{{ $item->name }}">補登</button>
-                                    @endfor
-                                @endif
-                                </div>
-                            </div>
-                            <div class="row">
-                                　
-                            </div>
-                            @endif
-                            @if($item->group==2 or $item->group==3)
-                            <div class="row">
-                                <text class="text-danger col-12">女子組</text>
-                                <div class="col-3">
+                    <?php
+                    $years_array = unserialize($item->years);
+                    ?>
+                    @if(in_array($student_year,$years_array))
+                        <div class="form-group">
+                            <div class="container-fluid">
+                                <label for="exampleFormControlSelect1"><h4>{{ $item->name }}@if($item->limit) <small class="text-danger">(限報)</small> @endif</h4></label>
+                                @if($item->group==1 or $item->group==3)
+                                <div class="row">
+                                    <text class="text-primary col-12">男子組</text>
+                                    <div class="col-3">
                                     <?php
-                                    $girls_sign = \App\StudentSign::where('item_id',$item->id)->where('sex','女')->where('student_year',$student_year)->where('student_class',$student_class)->get();
+                                        $boys_sign = \App\StudentSign::where('action_id',$action->id)->where('item_id',$item->id)->where('sex','男')->where('student_year',$student_year)->where('student_class',$student_class)->get();
                                     ?>
-                                @foreach($girls_sign as $girl_sign)
-                                    {{ $girl_sign->student->name }} <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#changeModal" data-name="{{ $girl_sign->student->name }}" data-sign_id="{{ $girl_sign->id }}" data-sex="女">更換</button>,
-                                @endforeach
-                                @if(count($girls_sign) < $item->people)
-                                    @for($i=1;$i<=$item->people-count($girls_sign);$i++)
-                                        <button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#makeModal" data-item_id="{{ $item->id }}" data-sex="女" data-item_name="{{ $item->name }}">補登</button>
-                                    @endfor
-                                @endif
+                                    @foreach($boys_sign as $boy_sign)
+                                        {{ $boy_sign->student->name }} <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#changeModal" data-name="{{ $boy_sign->student->name }}" data-sign_id="{{ $boy_sign->id }}" data-sex="男">更換</button>,
+                                    @endforeach
+                                    @if(count($boys_sign) < $item->people)
+                                        @for($i=1;$i<=$item->people-count($boys_sign);$i++)
+                                            <button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#makeModal" data-item_id="{{ $item->id }}" data-sex="男" data-item_name="{{ $item->name }}">補登</button>
+                                        @endfor
+                                    @endif
+                                    </div>
                                 </div>
+                                <div class="row">
+                                    　
+                                </div>
+                                @endif
+                                @if($item->group==2 or $item->group==3)
+                                <div class="row">
+                                    <text class="text-danger col-12">女子組</text>
+                                    <div class="col-3">
+                                        <?php
+                                        $girls_sign = \App\StudentSign::where('action_id',$action->id)->where('item_id',$item->id)->where('sex','女')->where('student_year',$student_year)->where('student_class',$student_class)->get();
+                                        ?>
+                                    @foreach($girls_sign as $girl_sign)
+                                        {{ $girl_sign->student->name }} <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#changeModal" data-name="{{ $girl_sign->student->name }}" data-sign_id="{{ $girl_sign->id }}" data-sex="女">更換</button>,
+                                    @endforeach
+                                    @if(count($girls_sign) < $item->people)
+                                        @for($i=1;$i<=$item->people-count($girls_sign);$i++)
+                                            <button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#makeModal" data-item_id="{{ $item->id }}" data-sex="女" data-item_name="{{ $item->name }}">補登</button>
+                                        @endfor
+                                    @endif
+                                    </div>
+                                </div>
+                                @endif
                             </div>
-                            @endif
                         </div>
-                    </div>
-                    <hr>
+                        <hr>
+                    @endif
                 @endforeach
             </div>
         </div>
