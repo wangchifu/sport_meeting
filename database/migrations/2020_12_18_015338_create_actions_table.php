@@ -15,6 +15,7 @@ class CreateActionsTable extends Migration
     {
         Schema::create('actions', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('semester');
             $table->string('code');
             $table->string('name');//
             $table->unsignedInteger('frequency');//每人可報項目有幾項

@@ -428,10 +428,23 @@ class SchoolAdminController extends Controller
         //不是本校即退回
         if($action->code != auth()->user()->code) return back();
 
+        $items = Item::where('action_id',$action->id)
+            ->where('code',auth()->user()->code)
+            ->where('disable',null)
+            ->orderBy('order')
+            ->get();
+
+        $student_classes = StudentClass::where('semester',$action->semester)
+            ->where('code',auth()->user()->code)
+            ->orderBy('student_year')
+            ->orderBy('student_class')
+            ->get();
 
 
         $data = [
             'action'=>$action,
+            'items'=>$items,
+            'student_classes'=>$student_classes,
 
         ];
         return view('school_admins.action_show',$data);
@@ -449,6 +462,7 @@ class SchoolAdminController extends Controller
     public function action_add(Request $request)
     {
         $att = $request->all();
+        $att['semester'] = auth()->user()->semester;
         $att['code'] = auth()->user()->code;
         Action::create($att);
         return redirect()->route('school_admins.action');

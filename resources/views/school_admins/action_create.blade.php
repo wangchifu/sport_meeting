@@ -7,7 +7,7 @@
         <h1 class="mt-4">新增報名任務</h1>
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="{{ route('school_admins.item') }}">報名設定</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('school_admins.action') }}">報名設定</a></li>
                 <li class="breadcrumb-item active" aria-current="page">新增報名任務</li>
             </ol>
         </nav>
