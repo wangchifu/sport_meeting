@@ -24,8 +24,13 @@
       <change beforePath="$PROJECT_DIR$/app/Action.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Action.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SchoolAdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SchoolAdminController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2020_12_18_015338_create_actions_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_12_18_015338_create_actions_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/navbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/navbar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/side.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/side.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/school_admins/action.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/school_admins/action.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/school_admins/action_create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/school_admins/action_create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/school_admins/action_show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/school_admins/action_show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/school_admins/action_edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/school_admins/action_edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/school_admins/item.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/school_admins/item.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/school_admins/item_create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/school_admins/item_create.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -207,7 +212,8 @@
       <workItem from="1608594856587" duration="11227000" />
       <workItem from="1608681156596" duration="1555000" />
       <workItem from="1608694254481" duration="605000" />
-      <workItem from="1608769737337" duration="11210000" />
+      <workItem from="1608769737337" duration="11830000" />
+      <workItem from="1608854754969" duration="4240000" />
     </task>
     <servers />
   </component>

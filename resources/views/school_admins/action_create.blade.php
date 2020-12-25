@@ -35,6 +35,12 @@
                     </select>
                 </div>
             </div>
+            <div class="form-row">
+                <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" id="open" name="open" checked>
+                    <label class="form-check-label" for="open">開放他校查詢(姓名會隱藏)</label>
+                </div>
+            </div>
             <button type="submit" class="btn btn-primary">新增</button>
         </form>
     </div>

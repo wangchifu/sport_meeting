@@ -38,13 +38,15 @@
                                 </span>
                                 <a href="{{ route('school_admins.action_show',$action->id) }}" class="btn btn-info btn-sm">報名狀況...</a>
                                 @if($action->disable)
-                                    <span class="text-danger">[停止]</span>
+                                    <span class="text-danger">[停用]</span>
                                 @endif
                                 <br>
                                 <small class="text-secondary">每人限報 {{ $action->frequency }} 個項目 號碼布為 {{ $action->numbers }} 位數</small>
                             </td>
                             <td>
-                                {{ $action->created_at }}
+                                <span @if($action->disable) style="text-decoration:line-through" @endif>
+                                    {{ $action->created_at }}
+                                </span>
                             </td>
                             <td>
                                 @if($action->disable)

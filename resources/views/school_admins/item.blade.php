@@ -81,9 +81,11 @@
                                 </span>
                             </td>
                             <td>
+                                <span @if($item->disable) style="text-decoration:line-through" @endif>
                                 @foreach(unserialize($item->years) as $y)
                                     {{ $y }},
                                 @endforeach
+                                </span>
                             </td>
                             <td>
                                 @if($item->disable)

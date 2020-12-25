@@ -1,9 +1,8 @@
 <div class="sb-sidenav-menu">
     <div class="nav">
-        <div class="sb-sidenav-menu-heading">各校運動會</div>
         <a class="nav-link" href="">
-            <div class="sb-nav-link-icon"><i class="fas fa-user-friends"></i></div>
-            列出各校
+            <div class="sb-nav-link-icon"><i class="fas fa-list"></i></div>
+            全站資料
         </a>
         @auth
             @php
@@ -11,52 +10,72 @@
             @endphp
             @if(!empty($school_admin))
                 @if($school_admin->type === 1)
-                    <div class="sb-sidenav-menu-heading">各校管理</div>
-                    <a class="nav-link" href="{{ route('school_admins.api') }}">
-                        <div class="sb-nav-link-icon"><i class="fas fa-school"></i></div>
-                        匯入學校 API
-                    </a>
-                    <a class="nav-link" href="{{ route('school_admins.account') }}">
-                        <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
-                        帳號管理
-                    </a>
-                    <a class="nav-link" href="{{ route('school_admins.action') }}">
-                        <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                        報名任務
-                    </a>
-                    <a class="nav-link" href="{{ route('school_admins.item') }}">
-                        <div class="sb-nav-link-icon"><i class="fas fa-running"></i></div>
-                        比賽項目
-                    </a>
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
-                        <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                        TTTTTT
+                        <div class="sb-nav-link-icon"><i class="fas fa-school"></i></div>
+                        學校管理員
                         <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                     </a>
                     <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav">
-                            <a class="nav-link" href="#">設定報名</a>
-                            <a class="nav-link" href="#">報名狀況</a>
+                            <a class="nav-link" href="{{ route('school_admins.api') }}">匯入學校 API</a>
+                            <a class="nav-link" href="{{ route('school_admins.account') }}">帳號管理</a>
+                            <a class="nav-link" href="{{ route('school_admins.action') }}">報名任務</a>
+                            <a class="nav-link" href="{{ route('school_admins.item') }}">比賽項目</a>
                         </nav>
                     </div>
                 @endif
             @endif
-            <div class="sb-sidenav-menu-heading">各班導師</div>
-            <a class="nav-link" href="{{ route('class_teachers.sign_up') }}">
-                <div class="sb-nav-link-icon"><i class="fas fa-list"></i></div>
-                報名比賽
+            <a class="nav-link" href="">
+                <div class="sb-nav-link-icon"><i class="fas fa-star"></i></div>
+                屆次成績
             </a>
+            <?php
+            $check1 = \App\StudentClass::where('semester', auth()->user()->semester)->where('code', auth()->user()->code)->where('user_ids', auth()->user()->id)->first();
+            $check2 = \App\StudentClass::where('semester', auth()->user()->semester)->where('code', auth()->user()->code)->where('user_ids', 'like', auth()->user()->id . ',%')->first();
+            $check3 = \App\StudentClass::where('semester', auth()->user()->semester)->where('code', auth()->user()->code)->where('user_ids', 'like', '%,' . auth()->user()->id)->first();
+
+            $student_class = [];
+            if(!empty($check1)) $student_class = $check1;
+            if(!empty($check2)) $student_class = $check2;
+            if(!empty($check3)) $student_class = $check3;
+            ?>
+            @if(!empty($student_class))
+                <a class="nav-link" href="{{ route('class_teachers.sign_up') }}">
+                    <div class="sb-nav-link-icon"><i class="fas fa-copy"></i></div>
+                    導師報名
+                </a>
+            @endif
             @if(!empty($school_admin))
+                @if($school_admin->type === 1)
+                    <a class="nav-link" href="{{ route('class_teachers.sign_up') }}">
+                        <div class="sb-nav-link-icon"><i class="fas fa-copy"></i></div>
+                        導師報名
+                    </a>
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts3" aria-expanded="false" aria-controls="collapseLayouts">
+                        <div class="sb-nav-link-icon"><i class="fas fa-download"></i></div>
+                        各式表單
+                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                    </a>
+                    <div class="collapse" id="collapseLayouts3" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                        <nav class="sb-sidenav-menu-nested nav">
+                            <a class="nav-link" href="">註冊選手名單</a>
+                            <a class="nav-link" href="">項目記錄表</a>
+                            <a class="nav-link" href="">成績記錄單</a>
+                        </nav>
+                    </div>
+                @endif
                 @if($school_admin->type === 1 or $school_admin->type === 2)
-                    <div class="sb-sidenav-menu-heading">成績管理</div>
-                    <a class="nav-link" href="{{ route('school_admins.item') }}">
-                        <div class="sb-nav-link-icon"><i class="fas fa-list"></i></div>
-                        成績登入
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts2" aria-expanded="false" aria-controls="collapseLayouts">
+                        <div class="sb-nav-link-icon"><i class="fas fa-edit"></i></div>
+                        成績處理
+                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                     </a>
-                    <a class="nav-link" href="{{ route('school_admins.item') }}">
-                        <div class="sb-nav-link-icon"><i class="fas fa-list"></i></div>
-                        獎狀列印
-                    </a>
+                    <div class="collapse" id="collapseLayouts2" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                        <nav class="sb-sidenav-menu-nested nav">
+                            <a class="nav-link" href="{{ route('school_admins.api') }}">成績登入</a>
+                            <a class="nav-link" href="{{ route('school_admins.account') }}">獎狀列印</a>
+                        </nav>
+                    </div>
                 @endif
             @endif
         @endauth

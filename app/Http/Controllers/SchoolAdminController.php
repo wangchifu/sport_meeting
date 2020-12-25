@@ -464,6 +464,7 @@ class SchoolAdminController extends Controller
         $att = $request->all();
         $att['semester'] = auth()->user()->semester;
         $att['code'] = auth()->user()->code;
+        $att['open'] = ($request->input('open'))?1:null;
         Action::create($att);
         return redirect()->route('school_admins.action');
     }
@@ -482,6 +483,7 @@ class SchoolAdminController extends Controller
     public function action_update(Request $request,Action $action)
     {
         $att = $request->all();
+        $att['open'] = ($request->input('open'))?1:null;
         $action->update($att);
         return redirect()->route('school_admins.action');
     }

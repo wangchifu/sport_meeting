@@ -13,5 +13,6 @@ class Action extends Model
         'frequency',
         'numbers',
         'disable',
+        'open',
     ];
 }

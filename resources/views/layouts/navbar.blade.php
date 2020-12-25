@@ -14,15 +14,14 @@
             @auth
                 <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i> {{ auth()->user()->name }}</a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                    <a class="dropdown-item" href="#">Settings</a>
-                    <a class="dropdown-item" href="#">Activity Log</a>
-
-
+                    @if(auth()->user()->admin)
+                        <a class="dropdown-item" href="#">所有帳號</a>
+                        <div class="dropdown-divider"></div>
+                    @endif
                     @impersonating
                         <a class="dropdown-item" href="{{ route('school_admins.impersonate_leave') }}" data-toggle="modal" data-target="#impersonate_leaveModal">結束模擬</a>
+                        <div class="dropdown-divider"></div>
                     @endImpersonating
-
-                    <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">登出</a>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         @csrf

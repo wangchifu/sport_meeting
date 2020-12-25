@@ -4,7 +4,7 @@
 
 @section('main')
     <div class="container-fluid">
-        <h1 class="mt-4">新增比賽項目</h1>
+        <h1 class="mt-4">新增「{{ $action->name }}」比賽項目</h1>
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ route('school_admins.item') }}">比賽項目</a></li>
