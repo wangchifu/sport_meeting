@@ -15,5 +15,6 @@ class Student extends Model
         'student_year',
         'student_class',
         'num',
+        'number',
     ];
 }

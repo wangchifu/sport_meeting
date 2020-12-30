@@ -58,8 +58,8 @@
                     </a>
                     <div class="collapse" id="collapseLayouts3" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav">
-                            <a class="nav-link" href="">註冊選手名單</a>
-                            <a class="nav-link" href="">項目記錄表</a>
+                            <a class="nav-link" href="{{ route('school_admins.students') }}">註冊選手名單</a>
+                            <a class="nav-link" href="{{ route('school_admins.records') }}">項目記錄表</a>
                             <a class="nav-link" href="">成績記錄單</a>
                         </nav>
                     </div>

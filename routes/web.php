@@ -64,6 +64,9 @@ Route::group(['middleware' => 'school_admin'],function(){
     Route::patch('school_admins/action/{action}/update', 'SchoolAdminController@action_update')->name('school_admins.action_update');
     Route::get('school_admins/action/{action}/delete', 'SchoolAdminController@action_delete')->name('school_admins.action_delete');
     Route::get('school_admins/action/{action}/enable', 'SchoolAdminController@action_enable')->name('school_admins.action_enable');
+
+    Route::get('school_admins/students/{action_id?}', 'SchoolAdminController@students')->name('school_admins.students');
+    Route::get('school_admins/records/{action_id?}', 'SchoolAdminController@records')->name('school_admins.records');
 });
 
 //登入的使用者可用

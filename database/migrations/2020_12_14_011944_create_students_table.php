@@ -23,6 +23,7 @@ class CreateStudentsTable extends Migration
             $table->string('student_year');//年級
             $table->string('student_class');//班級
             $table->tinyInteger('num');//座號
+            $table->string('number')->nullable();//布牌
             $table->timestamps();
         });
     }

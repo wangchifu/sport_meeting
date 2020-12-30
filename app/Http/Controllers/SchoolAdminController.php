@@ -9,6 +9,7 @@ use App\Student;
 use App\SchoolAdmin;
 use App\Item;
 use App\Action;
+use App\StudentSign;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -506,6 +507,94 @@ class SchoolAdminController extends Controller
         $att['disable'] =null;
         $action->update($att);
         return redirect()->route('school_admins.action');
+    }
+
+    public function students($action_id=null)
+    {
+        $actions = Action::orderBy('id','DESC')->get();
+        $action_array = [];
+        foreach($actions as $action){
+            $action_array[$action->id] = $action->name;
+        }
+        $select_action = null;
+        if(empty($action_id)){
+            $select_action = key($action_array);
+        }else{
+            $select_action = $action_id;
+        }
+
+        if($select_action){
+            $action = Action::find($select_action);
+            $student_classes = StudentClass::where('semester',$action->semester)
+                ->where('code',$action->code)
+                ->orderBy('student_year')
+                ->orderBy('student_class')
+                ->get();
+        }
+
+        $data = [
+            'action_array'=>$action_array,
+            'select_action'=>$select_action,
+            'student_classes'=>$student_classes,
+            'action'=>$action,
+        ];
+
+        return view('school_admins.students',$data);
+    }
+
+    public function records($action_id=null)
+    {
+        $actions = Action::orderBy('id','DESC')->get();
+        $action_array = [];
+        foreach($actions as $action){
+            $action_array[$action->id] = $action->name;
+        }
+        $select_action = null;
+        if(empty($action_id)){
+            $select_action = key($action_array);
+        }else{
+            $select_action = $action_id;
+        }
+
+        $years = [];
+        $year_students = [];
+
+        if($select_action){
+            $action = Action::find($select_action);
+
+            $items = Item::where('action_id',$select_action)
+                ->get();
+
+            $student_classes = StudentClass::where('semester',$action->semester)
+                ->where('code',$action->code)
+                ->orderBy('student_year')
+                ->orderBy('student_class')
+                ->get();
+
+            $student_signs = StudentSign::where('action_id',$action->id)
+                ->where('code',$action->code)
+                ->orderBy('student_year')
+                ->orderBy('student_class')
+                ->get();
+
+            foreach($student_signs as $student_sign){
+                $years[$student_sign->student_year] = 1;
+                $year_students[$student_sign->student_year][$student_sign->item_id][$student_sign->sex][$student_sign->student->number] = $student_sign->student->name;
+            }
+        }
+
+        $data = [
+            'items'=>$items,
+            'student_signs'=>$student_signs,
+            'action_array'=>$action_array,
+            'select_action'=>$select_action,
+            'student_classes'=>$student_classes,
+            'action'=>$action,
+            'years'=>$years,
+            'year_students'=>$year_students,
+        ];
+
+        return view('school_admins.records',$data);
     }
 
 

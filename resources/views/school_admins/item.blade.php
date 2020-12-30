@@ -7,10 +7,10 @@
         <h1 class="mt-4">比賽項目</h1>
         <div class="row">
             <div class="col-xl-12 col-md-12">
-                <form name="myform" onchange="jump()">
+                <form name="myform">
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        {{ Form::select('select_action', $action_array, $select_action, ['class' => 'form-control']) }}
+                        {{ Form::select('select_action', $action_array, $select_action, ['class' => 'form-control','onchange'=>'jump()']) }}
                     </div>
                     <div class="form-group col-md-2">
                         <a class="btn btn-success" href="{{ route('school_admins.item_create',$select_action) }}">新增比賽項目</a>
