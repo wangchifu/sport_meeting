@@ -16,7 +16,7 @@
             <div class="col-xl-12 col-md-12">
                 <h3>{{ $student_year }}年{{ $student_class }}班</h3>
                 @include('layouts.errors')
-                @if(count($items))
+                @if(count($items) > 0)
                     <form action="{{ route('class_teachers.sign_up_add') }}" method="post">
                         @csrf
                         @foreach($items as $item)
