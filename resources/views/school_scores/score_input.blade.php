@@ -18,16 +18,30 @@
                     <thead class="table-primary">
                     <tr>
                         <th>
-                            資料
+                            序號
+                        </th>
+                        <th>
+                            名稱
+                        </th>
+                        <th>
+                            動作
                         </th>
                     </tr>
                     </thead>
                     <tbody>
+                    @foreach($items as $item)
                     <tr>
                         <td>
-
+                            {{ $item->order }}
+                        </td>
+                        <td>
+                            {{ $item->name }}
+                        </td>
+                        <td>
+                            <a href="{{ route('school_scores.score_input_do',['action'=>$action->id,'item'=>$item->id]) }}" class="btn btn-primary btn-sm">填寫</a>
                         </td>
                     </tr>
+                    @endforeach
                     </tbody>
                 </table>
             </div>

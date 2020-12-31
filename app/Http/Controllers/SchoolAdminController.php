@@ -525,6 +525,10 @@ class SchoolAdminController extends Controller
 
         if($select_action){
             $action = Action::find($select_action);
+
+            //不是本校即退回
+            if($action->code != auth()->user()->code) return back();
+
             $student_classes = StudentClass::where('semester',$action->semester)
                 ->where('code',$action->code)
                 ->orderBy('student_year')
@@ -561,6 +565,9 @@ class SchoolAdminController extends Controller
 
         if($select_action){
             $action = Action::find($select_action);
+
+            //不是本校即退回
+            if($action->code != auth()->user()->code) return back();
 
             $items = Item::where('action_id',$select_action)
                 ->get();

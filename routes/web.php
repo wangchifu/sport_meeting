@@ -72,6 +72,8 @@ Route::group(['middleware' => 'school_admin'],function(){
 
 Route::group(['middleware' => 'school_score'],function(){
     Route::get('school_scores/score_input/{action_id?}', 'SchoolScoreController@score_input')->name('school_scores.score_input');
+    Route::get('school_scores/score_input/{action}/do/{item}', 'SchoolScoreController@score_input_do')->name('school_scores.score_input_do');
+    Route::post('school_scores/score_input_update', 'SchoolScoreController@score_input_update')->name('school_scores.score_input_update');
     Route::get('school_scores/score_print/{action_id?}', 'SchoolScoreController@score_print')->name('school_scores.score_print');
 });
 
