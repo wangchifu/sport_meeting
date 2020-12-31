@@ -20,15 +20,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="559e7c48-4c12-42fd-a213-e64a055785f2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/SchoolScoreController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/SchoolScoreMiddleware.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/school_admins/scores.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/school_scores/score_input.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/school_scores/score_print.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SchoolAdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SchoolAdminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/side.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/side.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -215,7 +206,7 @@
       <workItem from="1608854754969" duration="5008000" />
       <workItem from="1609132489369" duration="484000" />
       <workItem from="1609286690142" duration="10756000" />
-      <workItem from="1609372768194" duration="2581000" />
+      <workItem from="1609372768194" duration="2619000" />
     </task>
     <servers />
   </component>

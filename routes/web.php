@@ -25,7 +25,7 @@ Route::post('g_auth', 'LoginController@g_auth')->name('g_auth');
 Route::get('openid_get', 'LoginController@openid_get')->name('openid_get');
 //cloudschool登入
 Route::post('cloudschool_auth', 'LoginController@cloudschool_auth')->name('cloudschool_auth');
-Route::get('cloudschool_back', 'LoginController@cloudschool_back')->name('cloudschool_back');
+Route::get('callback', 'LoginController@cloudschool_back')->name('cloudschool_back');
 //登出
 Route::post('logout', 'LoginController@logout')->name('logout');
 
