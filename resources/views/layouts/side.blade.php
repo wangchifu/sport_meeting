@@ -60,7 +60,7 @@
                         <nav class="sb-sidenav-menu-nested nav">
                             <a class="nav-link" href="{{ route('school_admins.students') }}">註冊選手名單</a>
                             <a class="nav-link" href="{{ route('school_admins.records') }}">項目記錄表</a>
-                            <a class="nav-link" href="">成績記錄單</a>
+                            <a class="nav-link" href="{{ route('school_admins.scores') }}">成績記錄單</a>
                         </nav>
                     </div>
                 @endif
@@ -72,8 +72,8 @@
                     </a>
                     <div class="collapse" id="collapseLayouts2" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav">
-                            <a class="nav-link" href="{{ route('school_admins.api') }}">成績登入</a>
-                            <a class="nav-link" href="{{ route('school_admins.account') }}">獎狀列印</a>
+                            <a class="nav-link" href="{{ route('school_scores.score_input') }}">成績登入</a>
+                            <a class="nav-link" href="{{ route('school_scores.score_print') }}">獎狀列印</a>
                         </nav>
                     </div>
                 @endif

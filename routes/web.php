@@ -67,6 +67,12 @@ Route::group(['middleware' => 'school_admin'],function(){
 
     Route::get('school_admins/students/{action_id?}', 'SchoolAdminController@students')->name('school_admins.students');
     Route::get('school_admins/records/{action_id?}', 'SchoolAdminController@records')->name('school_admins.records');
+    Route::get('school_admins/scores/{action_id?}', 'SchoolAdminController@scores')->name('school_admins.scores');
+});
+
+Route::group(['middleware' => 'school_score'],function(){
+    Route::get('school_scores/score_input/{action_id?}', 'SchoolScoreController@score_input')->name('school_scores.score_input');
+    Route::get('school_scores/score_print/{action_id?}', 'SchoolScoreController@score_print')->name('school_scores.score_print');
 });
 
 //登入的使用者可用
