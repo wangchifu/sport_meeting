@@ -16,9 +16,10 @@
             <div class="col-xl-12 col-md-12">
                 <h3>{{ $student_year }}年{{ $student_class }}班</h3>
                 @include('layouts.errors')
-                @if(count($items) > 0)
+                @if(count($items))
                     <form action="{{ route('class_teachers.sign_up_add') }}" method="post">
                         @csrf
+                        <?php $n=0; ?>
                         @foreach($items as $item)
                         <?php
                             $years_array = unserialize($item->years);
@@ -53,12 +54,15 @@
                                     </div>
                                 </div>
                                 <hr>
+                                <?php $n++; ?>
                             @endif
                         @endforeach
                         <input type="hidden" name="action_id" value="{{ $action->id }}">
                         <input type="hidden" name="student_year" value="{{ $student_year }}">
                         <input type="hidden" name="student_class" value="{{ $student_class }}">
-                        <button class="btn btn-primary">送出</button>
+                        @if($n >0)
+                            <button class="btn btn-primary">送出</button>
+                        @endif
                     </form>
                 @endif
             </div>
