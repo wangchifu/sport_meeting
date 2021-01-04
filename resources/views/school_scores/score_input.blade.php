@@ -1,10 +1,10 @@
 @extends('layouts.master')
 
-@section('title','成績登入')
+@section('title','成績登錄')
 
 @section('main')
     <div class="container-fluid">
-        <h1 class="mt-4">成績登入</h1>
+        <h1 class="mt-4">成績登錄</h1>
         <div class="row">
             <div class="col-xl-12 col-md-12">
                 <form name="myform">

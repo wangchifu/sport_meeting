@@ -324,7 +324,7 @@ class SchoolAdminController extends Controller
     public function item($action_id=null)
     {
 
-        $actions = Action::orderBy('id','DESC')->get();
+        $actions = Action::where('code',auth()->user()->code)->orderBy('id','DESC')->get();
         $action_array = [];
         foreach($actions as $action){
             $action_array[$action->id] = $action->name;
@@ -511,7 +511,7 @@ class SchoolAdminController extends Controller
 
     public function students($action_id=null)
     {
-        $actions = Action::orderBy('id','DESC')->get();
+        $actions = Action::where('code',auth()->user()->code)->orderBy('id','DESC')->get();
         $action_array = [];
         foreach($actions as $action){
             $action_array[$action->id] = $action->name;
@@ -548,7 +548,7 @@ class SchoolAdminController extends Controller
 
     public function records($action_id=null)
     {
-        $actions = Action::orderBy('id','DESC')->get();
+        $actions = Action::where('code',auth()->user()->code)->orderBy('id','DESC')->get();
         $action_array = [];
         foreach($actions as $action){
             $action_array[$action->id] = $action->name;
@@ -606,7 +606,7 @@ class SchoolAdminController extends Controller
 
     public function scores($action_id=null)
     {
-        $actions = Action::orderBy('id','DESC')->get();
+        $actions = Action::where('code',auth()->user()->code)->orderBy('id','DESC')->get();
         $action_array = [];
         foreach($actions as $action){
             $action_array[$action->id] = $action->name;
@@ -616,6 +616,13 @@ class SchoolAdminController extends Controller
             $select_action = key($action_array);
         }else{
             $select_action = $action_id;
+        }
+
+        if($select_action) {
+            $action = Action::find($select_action);
+
+            //不是本校即退回
+            if ($action->code != auth()->user()->code) return back();
         }
         $data = [
             'action_array'=>$action_array,

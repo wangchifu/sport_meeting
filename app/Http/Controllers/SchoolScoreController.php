@@ -11,7 +11,7 @@ class SchoolScoreController extends Controller
 {
     public function score_input($action_id=null)
     {
-        $actions = Action::orderBy('id','DESC')->get();
+        $actions = Action::where('code',auth()->user()->code)->orderBy('id','DESC')->get();
         $action_array = [];
         foreach($actions as $action){
             $action_array[$action->id] = $action->name;
@@ -108,7 +108,7 @@ class SchoolScoreController extends Controller
 
     public function score_print($action_id=null)
     {
-        $actions = Action::orderBy('id','DESC')->get();
+        $actions = Action::where('code',auth()->user()->code)->orderBy('id','DESC')->get();
         $action_array = [];
         foreach($actions as $action){
             $action_array[$action->id] = $action->name;

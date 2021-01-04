@@ -1,6 +1,6 @@
 <div class="sb-sidenav-menu">
     <div class="nav">
-        <a class="nav-link" href="">
+        <a class="nav-link" href="{{ route('all') }}">
             <div class="sb-nav-link-icon"><i class="fas fa-list"></i></div>
             全站資料
         </a>
@@ -25,9 +25,9 @@
                     </div>
                 @endif
             @endif
-            <a class="nav-link" href="">
+            <a class="nav-link" href="{{ route('show') }}">
                 <div class="sb-nav-link-icon"><i class="fas fa-star"></i></div>
-                屆次成績
+                歷次成績
             </a>
             <?php
             $check1 = \App\StudentClass::where('semester', auth()->user()->semester)->where('code', auth()->user()->code)->where('user_ids', auth()->user()->id)->first();
@@ -72,7 +72,7 @@
                     </a>
                     <div class="collapse" id="collapseLayouts2" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav">
-                            <a class="nav-link" href="{{ route('school_scores.score_input') }}">成績登入</a>
+                            <a class="nav-link" href="{{ route('school_scores.score_input') }}">成績登錄</a>
                             <a class="nav-link" href="{{ route('school_scores.score_print') }}">獎狀列印</a>
                         </nav>
                     </div>

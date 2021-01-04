@@ -1,14 +1,14 @@
 @extends('layouts.master')
 
-@section('title',$item->name .'成績登入')
+@section('title',$item->name .'成績登錄')
 
 @section('main')
     <div class="container-fluid">
-        <h1 class="mt-4">{{ $item->name }}成績登入</h1>
+        <h1 class="mt-4">{{ $item->name }}成績登錄</h1>
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ route('school_scores.score_input') }}">成績登入</a></li>
-                <li class="breadcrumb-item active" aria-current="page">開始登入「{{ $action->name }}」 - {{ $item->name }}</li>
+                <li class="breadcrumb-item active" aria-current="page">開始登錄「{{ $action->name }}」 - {{ $item->name }}</li>
             </ol>
         </nav>
         <div class="row">

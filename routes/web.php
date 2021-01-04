@@ -86,4 +86,7 @@ Route::group(['middleware' => 'auth'],function(){
     Route::get('class_teachers/{action}/sign_up_show', 'ClassTeacherController@sign_up_show')->name('class_teachers.sign_up_show');
     Route::patch('class_teachers/student_sign_update', 'ClassTeacherController@student_sign_update')->name('class_teachers.student_sign_update');
     Route::post('class_teachers/student_sign_make', 'ClassTeacherController@student_sign_make')->name('class_teachers.student_sign_make');
+    Route::get('show/{action_id?}', 'HomeController@show')->name('show');
 });
+Route::get('all', 'HomeController@all')->name('all');
+Route::post('show_one', 'HomeController@show_one')->name('show_one');
