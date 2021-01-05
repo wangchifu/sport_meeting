@@ -25,9 +25,10 @@
                     <tbody>
                     <tr>
                         <td>
+                            <?php $cht_num = config('chcschool.cht_num'); ?>
                         @foreach($years as $k=>$v)
                             <h3>
-                                {{ $k }}年級
+                                {{ $cht_num[$k] }}年級
                             </h3>
                             <?php $n=1; ?>
                             @foreach($items as $item)

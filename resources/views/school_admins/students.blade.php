@@ -34,8 +34,10 @@
                                     $user_name .= $user->name.'　';
                                 }
 
+                                $cht_num = config('chcschool.cht_num');
+
                             ?>
-                                <span style="font-weight:bold;">{{ $student_class->student_year }}年{{ $student_class->student_class }}班　　　　領隊：{{ $user_name }}</span><br>
+                                <span style="font-weight:bold;">{{ $cht_num[$student_class->student_year] }}年{{ $student_class->student_class }}班　　　　領隊：{{ $user_name }}</span><br>
                             <?php
                                 $select_students['男'] = [];
                                 $select_students['女'] = [];

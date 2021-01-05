@@ -38,7 +38,7 @@
                             {{ $item->name }}
                         </td>
                         <td>
-                            <a href="{{ route('school_scores.score_input_do',['action'=>$action->id,'item'=>$item->id]) }}" class="btn btn-primary btn-sm">填寫</a>
+                            <a href="{{ route('school_scores.score_input_do',['action'=>$select_action,'item'=>$item->id]) }}" class="btn btn-primary btn-sm">填寫</a>
                         </td>
                     </tr>
                     @endforeach

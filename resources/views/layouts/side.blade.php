@@ -72,8 +72,8 @@
                     </a>
                     <div class="collapse" id="collapseLayouts2" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav">
+                            <a class="nav-link" href="{{ route('school_scores.score_print') }}">自訂獎狀</a>
                             <a class="nav-link" href="{{ route('school_scores.score_input') }}">成績登錄</a>
-                            <a class="nav-link" href="{{ route('school_scores.score_print') }}">獎狀列印</a>
                         </nav>
                     </div>
                 @endif

@@ -20,17 +20,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="559e7c48-4c12-42fd-a213-e64a055785f2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/all.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/show.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/show_one.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/demo.odt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SchoolAdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SchoolAdminController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SchoolScoreController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SchoolScoreController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/chcschool.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/chcschool.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/side.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/side.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/school_admins/records.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/school_admins/records.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/school_admins/students.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/school_admins/students.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/school_scores/score_input.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/school_scores/score_input.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/school_scores/score_input_do.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/school_scores/score_input_do.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/school_scores/score_print.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/school_scores/score_print.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -159,7 +158,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../chcschool" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -218,7 +217,8 @@
       <workItem from="1609132489369" duration="484000" />
       <workItem from="1609286690142" duration="10756000" />
       <workItem from="1609372768194" duration="19673000" />
-      <workItem from="1609718308090" duration="1991000" />
+      <workItem from="1609718308090" duration="10399000" />
+      <workItem from="1609804484867" duration="7074000" />
     </task>
     <servers />
   </component>

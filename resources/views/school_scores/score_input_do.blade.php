@@ -57,7 +57,8 @@
                     </table>
                         <input type="hidden" name="action_id" value="{{ $action->id }}">
                         <input type="hidden" name="item_id" value="{{ $item->id }}">
-                        <button class="btn btn-primary">送出{{ $year }}年級男子組成績</button>
+                        <button class="btn btn-primary btn-sm">送出{{ $year }}年級男子組成績</button>
+                        <a href="{{ route('school_scores.score_input_print',['action'=>$action->id,'item'=>$item->id,'year'=>$year,'sex'=>'男']) }}" class="btn btn-success btn-sm"><i class="fas fa-print"></i> 列印獎狀</a>
                     </form>
                     <hr>
                 @endforeach
@@ -103,7 +104,8 @@
                         </table>
                             <input type="hidden" name="action_id" value="{{ $action->id }}">
                             <input type="hidden" name="item_id" value="{{ $item->id }}">
-                            <button class="btn btn-primary">送出{{ $year }}年級女子組成績</button>
+                            <button class="btn btn-primary btm-sm">送出{{ $year }}年級女子組成績</button>
+                            <a href="{{ route('school_scores.score_input_print',['action'=>$action->id,'item'=>$item->id,'year'=>$year,'sex'=>'女']) }}" class="btn btn-success btn-sm"><i class="fas fa-print"></i> 列印獎狀</a>
                         </form>
                         <hr>
                     @endforeach
