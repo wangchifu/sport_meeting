@@ -15,7 +15,7 @@
                 <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i> {{ auth()->user()->name }}</a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                     @if(auth()->user()->admin)
-                        <a class="dropdown-item" href="#">所有帳號</a>
+                        <a class="dropdown-item" href="{{ route('users') }}">全站帳號</a>
                         <div class="dropdown-divider"></div>
                     @endif
                     @impersonating

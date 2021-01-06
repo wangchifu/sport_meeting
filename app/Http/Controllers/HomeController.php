@@ -7,6 +7,7 @@ use App\Action;
 use App\Item;
 use App\StudentClass;
 use App\SchoolApi;
+use App\User;
 
 class HomeController extends Controller
 {
@@ -125,5 +126,55 @@ class HomeController extends Controller
             'school_code'=>$school_code,
         ];
         return view('show_one',$data);
+    }
+
+    public function users()
+    {
+        if(auth()->user()->admin != 1){
+            return back();
+        }
+
+        $schools = config('chcschool.schools');
+        $users = User::get();
+        $data = [
+            'users'=>$users,
+            'schools'=>$schools,
+        ];
+        return view('users',$data);
+    }
+
+    public function search(Request $request)
+    {
+        if(auth()->user()->admin != 1){
+            return back();
+        }
+        $schools = config('chcschool.schools');
+        $users = User::where('name','like','%'.$request->input('want').'%')->get();
+        $data = [
+            'users'=>$users,
+            'schools'=>$schools,
+        ];
+        return view('users',$data);
+
+    }
+
+    public function search_school(Request $request)
+    {
+        if(auth()->user()->admin != 1){
+            return back();
+        }
+        $schools = config('chcschool.schools');
+        $schools2 = array_flip($schools);
+
+        $users = [];
+        if(isset($schools2[$request->input('want_school')])){
+            $users = User::where('code',$schools2[$request->input('want_school')])->get();
+        }
+        $data = [
+            'users'=>$users,
+            'schools'=>$schools,
+        ];
+        return view('users',$data);
+
     }
 }

@@ -93,3 +93,7 @@ Route::group(['middleware' => 'auth'],function(){
 });
 Route::get('all', 'HomeController@all')->name('all');
 Route::post('show_one', 'HomeController@show_one')->name('show_one');
+
+Route::get('users', 'HomeController@users')->name('users');
+Route::post('search', 'HomeController@search')->name('search');
+Route::post('search_school', 'HomeController@search_school')->name('search_school');
