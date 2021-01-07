@@ -499,6 +499,17 @@ class SchoolAdminController extends Controller
         return redirect()->route('school_admins.action');
     }
 
+    public function action_destroy(Action $action)
+    {
+        //不是本校即退回
+        if($action->code != auth()->user()->code) return back();
+
+        Item::where('action_id',$action->id)->delete();
+        StudentSign::where('action_id',$action->id)->delete();
+        $action->delete();
+        return redirect()->route('school_admins.action');
+    }
+
     public function action_enable(Action $action)
     {
         //不是本校即退回

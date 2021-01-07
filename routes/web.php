@@ -57,6 +57,7 @@ Route::group(['middleware' => 'school_admin'],function(){
     Route::get('school_admins/item/{item}/enable', 'SchoolAdminController@item_enable')->name('school_admins.item_enable');
 
     Route::get('school_admins/action', 'SchoolAdminController@action')->name('school_admins.action');
+    Route::get('school_admins/{action}/action_destroy', 'SchoolAdminController@action_destroy')->name('school_admins.action_destroy');
     Route::get('school_admins/{action}/action_show', 'SchoolAdminController@action_show')->name('school_admins.action_show');
     Route::get('school_admins/action/create', 'SchoolAdminController@action_create')->name('school_admins.action_create');
     Route::post('school_admins/action/add', 'SchoolAdminController@action_add')->name('school_admins.action_add');

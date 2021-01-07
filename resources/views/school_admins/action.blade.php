@@ -53,8 +53,9 @@
                                     <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#actionModal" data-whatever="{{ route('school_admins.action_enable',$action->id) }}" data-name="{{ $action->name }}" data-act="enable">啟用</button>
                                 @else
                                     <a class="btn btn-primary btn-sm" href="{{ route('school_admins.action_edit',$action->id) }}">修改</a>
-                                    <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#actionModal" data-whatever="{{ route('school_admins.action_delete',$action->id) }}" data-name="{{ $action->name }}" data-act="delete">停用</button>
+                                    <button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#actionModal" data-whatever="{{ route('school_admins.action_delete',$action->id) }}" data-name="{{ $action->name }}" data-act="delete">停用</button>
                                 @endif
+                                    <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#actionModal" data-whatever="{{ route('school_admins.action_destroy',$action->id) }}" data-name="{{ $action->name }}" data-act="destroy">刪除</button>
                             </td>
                         </tr>
                         <?php $i++; ?>
@@ -97,6 +98,9 @@
             }
             if(act == "enable"){
                 $('#showText').text('啟用報名 ['+name+'] ？');
+            }
+            if(act == "destroy"){
+                $('#showText').text('完全刪除 ['+name+'] 的相關資料(項目、報名)？');
             }
 
         })
