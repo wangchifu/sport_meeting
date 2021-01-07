@@ -34,50 +34,58 @@
                     </thead>
                     <tbody>
                     @foreach($student_classes as $student_class)
-                        <tr>
-                            <td>
-                                {{ $student_class->student_year }}年級
-                            </td>
-                            @foreach($items as $item)
-                                <?php
-                                $years_array = unserialize($item->years);
-                                $student_signs = \App\StudentSign::where('item_id',$item->id)
-                                    ->where('student_year',$student_class->student_year)
-                                    ->where('student_class',$student_class->student_class)
-                                    ->orderBy('sex','DESC')
-                                    ->get();
-                                $rankings = config('chcschool.rankings');
-                                ?>
+                        <?php
+                        $check_signs = \App\StudentSign::where('action_id',$select_action)
+                            ->where('student_year',$student_class->student_year)
+                            ->where('student_class',$student_class->student_class)
+                            ->count();
+                        ?>
+                        @if($check_signs > 0)
+                            <tr>
                                 <td>
-                                    @if(in_array($student_class->student_year,$years_array) and count($student_signs)==0)
-                                        未報名
-                                    @endif
-                                    @if(!in_array($student_class->student_year,$years_array))
-                                        --
-                                    @endif
-                                    @foreach($student_signs as $student_sign)
-                                        @if($student_sign->student->sex == "男")
-                                            <span class="text-primary">
-                                            {{ mb_substr($student_sign->student->name,0,1) }}◯◯
-                                                @if($student_sign->achievement)
-                                                    [{{ $student_sign->achievement }}{{ $rankings[$student_sign->ranking] }}]
-                                                @endif
-                                        </span>
-                                            <br>
-                                        @endif
-                                        @if($student_sign->student->sex == "女")
-                                            <span class="text-danger">
-                                            {{ mb_substr($student_sign->student->name,0,1) }}◯◯
-                                                @if($student_sign->achievement)
-                                                    [{{ $student_sign->achievement }}{{ $rankings[$student_sign->ranking] }}]
-                                                @endif
-                                        </span>
-                                            <br>
-                                        @endif
-                                    @endforeach
+                                    {{ $student_class->student_year }}年級
                                 </td>
-                            @endforeach
-                        </tr>
+                                @foreach($items as $item)
+                                    <?php
+                                    $years_array = unserialize($item->years);
+                                    $student_signs = \App\StudentSign::where('item_id',$item->id)
+                                        ->where('student_year',$student_class->student_year)
+                                        ->where('student_class',$student_class->student_class)
+                                        ->orderBy('sex','DESC')
+                                        ->get();
+                                    $rankings = config('chcschool.rankings');
+                                    ?>
+                                    <td>
+                                        @if(in_array($student_class->student_year,$years_array) and count($student_signs)==0)
+                                            未報名
+                                        @endif
+                                        @if(!in_array($student_class->student_year,$years_array))
+                                            --
+                                        @endif
+                                        @foreach($student_signs as $student_sign)
+                                            @if($student_sign->student->sex == "男")
+                                                <span class="text-primary">
+                                                {{ mb_substr($student_sign->student->name,0,1) }}◯
+                                                    @if($student_sign->achievement)
+                                                        [{{ $student_sign->achievement }}{{ $rankings[$student_sign->ranking] }}]
+                                                    @endif
+                                            </span>
+                                                <br>
+                                            @endif
+                                            @if($student_sign->student->sex == "女")
+                                                <span class="text-danger">
+                                                {{ mb_substr($student_sign->student->name,0,1) }}◯
+                                                    @if($student_sign->achievement)
+                                                        [{{ $student_sign->achievement }}{{ $rankings[$student_sign->ranking] }}]
+                                                    @endif
+                                            </span>
+                                                <br>
+                                            @endif
+                                        @endforeach
+                                    </td>
+                                @endforeach
+                            </tr>
+                        @endif
                     @endforeach
                     </tbody>
                 </table>
