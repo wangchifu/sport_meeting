@@ -45,7 +45,7 @@
                                         <img src="{{ asset('images/boy.gif') }}">{{ $v['number'] }} {{ $v['name'] }}
                                     </td>
                                     <td>
-                                        <input type="text" class="form-control" value="{{ $v['achievement'] }}" name="achievement[{{ $v['id'] }}]" required>
+                                        <input type="text" class="form-control" value="{{ $v['achievement'] }}" name="achievement[{{ $v['id'] }}]">
                                     </td>
                                     <td>
                                         <input type="number" class="form-control" value="{{ $v['ranking'] }}" name="ranking[{{ $v['id'] }}]" placeholder="自動排名時可不填" tabindex="-1">
@@ -92,7 +92,7 @@
                                             <img src="{{ asset('images/girl.gif') }}">{{ $v['number'] }} {{ $v['name'] }}
                                         </td>
                                         <td>
-                                            <input type="text" class="form-control" value="{{ $v['achievement'] }}" name="achievement[{{ $v['id'] }}]" required>
+                                            <input type="text" class="form-control" value="{{ $v['achievement'] }}" name="achievement[{{ $v['id'] }}]">
                                         </td>
                                         <td>
                                             <input type="number" class="form-control" value="{{ $v['ranking'] }}" name="ranking[{{ $v['id'] }}]" placeholder="自動排名時可不填" tabindex="-1">

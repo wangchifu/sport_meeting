@@ -143,24 +143,26 @@ class SchoolScoreController extends Controller
 
                 $data_body = null;
                 foreach($student_signs as $student_sign){
-                    $this_student = $student_sign->student->name;
-                    $action_name = str_replace('報名','',$action->name);
-                    $group = $sex."子組";
-                    $item_name = $item->name;
-                    $ranking = $student_sign->ranking;
-                    $score = $student_sign->achievement;
-                    $print_date = "中華民國".date('Y').'年'.date('m').'月'.date('d').'日';
+                    if(!empty($student_sign->achievement)){
+                        $this_student = $student_sign->student->name;
+                        $action_name = str_replace('報名','',$action->name);
+                        $group = $sex."子組";
+                        $item_name = $item->name;
+                        $ranking = $student_sign->ranking;
+                        $score = $student_sign->achievement;
+                        $print_date = "中華民國".date('Y').'年'.date('m').'月'.date('d').'日';
 
-                    //取代
-                    $str2 = str_replace("{{年班同學}}", $this_student, $odt_body);
-                    $str2 = str_replace("{{運動會名稱}}", $action_name, $str2);
-                    $str2 = str_replace("{{組別}}", $group, $str2);
-                    $str2 = str_replace("{{項目}}", $item_name, $str2);
-                    $str2 = str_replace("{{名次}}", $ranking, $str2);
-                    $str2 = str_replace("{{成績}}", $score, $str2);
-                    $str2 = str_replace("{{日期}}", $print_date, $str2);
+                        //取代
+                        $str2 = str_replace("{{年班同學}}", $this_student, $odt_body);
+                        $str2 = str_replace("{{運動會名稱}}", $action_name, $str2);
+                        $str2 = str_replace("{{組別}}", $group, $str2);
+                        $str2 = str_replace("{{項目}}", $item_name, $str2);
+                        $str2 = str_replace("{{名次}}", $ranking, $str2);
+                        $str2 = str_replace("{{成績}}", $score, $str2);
+                        $str2 = str_replace("{{日期}}", $print_date, $str2);
 
-                    $data_body .= $str2;
+                        $data_body .= $str2;
+                    }
                 }
 
                 $odt = $odt_head."<office:body>".$data_body."</office:body>".$odt_foot;
