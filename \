@@ -1,0 +1,45 @@
+<VirtualHost *:80>
+       ServerName antidrug.localhost
+       DocumentRoot /var/www/html/antidrug/public
+       <Directory "/var/www/html/antidrug/public/">
+               Options -Indexes
+               AllowOverride All
+               Require all granted
+       </Directory>
+</VirtualHost>
+<VirtualHost *:80>
+       ServerName test.localhost
+       DocumentRoot /var/www/html/test/public
+       <Directory "/var/www/html/test/public/">
+               Options -Indexes
+               AllowOverride All
+               Require all granted
+       </Directory>
+</VirtualHost>
+<VirtualHost *:80>
+       ServerName chcschool.localhost
+       DocumentRoot /var/www/html/chcschool/public
+       <Directory "/var/www/html/chcschool/public/">
+               Options -Indexes
+               AllowOverride All
+               Require all granted
+       </Directory>
+</VirtualHost>
+<VirtualHost *:80>
+       ServerName boe.localhost
+       DocumentRoot /var/www/html/boe/public
+       <Directory "/var/www/html/boe/public/">
+               Options -Indexes
+               AllowOverride All
+               Require all granted
+       </Directory>
+</VirtualHost>
+<VirtualHost *:80>
+       ServerName sm.localhost
+       DocumentRoot /var/www/html/sport_meeting/public
+       <Directory "/var/www/html/sport_meeting/public/">
+               Options -Indexes
+               AllowOverride All
+               Require all granted
+       </Directory>
+</VirtualHost>
