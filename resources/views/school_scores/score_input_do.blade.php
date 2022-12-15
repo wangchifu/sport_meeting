@@ -34,10 +34,8 @@
                                     成績
                                 </th>
                                 <th>
-                                    名次
-                                    <!--
-                                    <input type="checkbox"  name="checkbox" id="itemB{{ $year }}"> <label for="itemB{{ $year }}">自動排名</label>
-                                    -->
+                                    名次                                    
+                                    <input type="checkbox"  name="checkbox" id="itemB{{ $year }}"> <label for="itemB{{ $year }}">自動排名</label>                                    
                                 </th>
                             </tr>
                             </thead>
